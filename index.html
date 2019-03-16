@@ -9,6 +9,1025 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 var levelCount = 0;
+//var drawlevels = [draw1,draw2,draw3,draw4,draw5,draw6,draw7,draw8,drawend];
+var drawlevels = [draw1,draw2,draw3,drawend];
+//var leveldata = [level1,level2,level3,level4,level5,level6,level7,level8];
+var leveldata = [level1,level2,level3];
+var holeCoords = new Array();
+var plugImages = new Array();
+var plugs = new Array();
+var winplugs = new Array();
+var currentPlug;
+var currentHole;
+var win;
+var winCount;
+var wrongplug;
+var totalscoreArray = new Array();
+var totalscore;
+var holenumbers;
+var totalholenumbers = 33;
+var sum = 0;
+var hintButton;
+//hintButton.src = 'assets/hint.png';
+var replayButton;
+var nextButton;
+
+//nextButton.src = 'assets/next.png';
+var hints = ["Drag and drop A and B into the relevant boxes",
+			"\u222A = union: all elements in set A OR set B\n\u2229 = intersection: all elements in set A AND set B.",
+			"\u2208 = 'is an element of'\n\u2209 = 'is not an element of'"];
+
+function setup(){
+	leveldata[levelCount]();
+	drawlevels[levelCount]();
+}
+
+function level1(){
+	holeCoords = [
+		{'x' : 100, 'y' : 100},
+		{'x' : 650, 'y' : 100},
+		{'x' :  80, 'y' : 390, 'plug' : 0},
+		{'x' : 480, 'y' : 390, 'plug' : 1}]
+
+	//var plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/a.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/b.png';
+
+	plugs = [0,1,-1,-1];
+	winplugs = [0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=2;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function level2(){
+	holeCoords = [
+		{'x' : 100, 'y' : 100},
+		{'x' : 100, 'y' : 170},
+		{'x' : 650, 'y' : 100},
+		{'x' : 650, 'y' : 170},
+		{'x' :  70, 'y' : 390, 'plug' : 0},
+		{'x' : 480, 'y' : 390, 'plug' : 3},
+		{'x' :  70, 'y' : 480, 'plug' : 2}]
+
+	plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/a.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/b.png';
+	plugImages[2] = new Image();
+	plugImages[2].src = 'assets/aunionb.png';
+	plugImages[3] = new Image();
+	plugImages[3].src = 'assets/aintersectb.png';
+
+	plugs = [0,1,2,3,-1,-1,-1];
+	winplugs = [0,0,0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=3;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function level3(){
+	holeCoords = [
+		{'x' : 100, 'y' : 100},
+		{'x' : 100, 'y' : 170},
+		{'x' : 100, 'y' : 240},
+		{'x' : 650, 'y' : 100},
+		{'x' : 650, 'y' : 170},
+		{'x' :  80, 'y' : 390, 'plug' : 3},
+		{'x' : 480, 'y' : 390, 'plug' : 0},
+		{'x' : 140, 'y' : 480, 'plug' : 1},
+		{'x' : 210, 'y' : 480, 'plug' : 2},
+		{'x' : 520, 'y' : 480, 'plug' : 4}]
+
+	plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/a.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/elementof.png';
+	plugImages[2] = new Image();
+	plugImages[2].src = 'assets/aintersectb.png';
+	plugImages[3] = new Image();
+	plugImages[3].src = 'assets/b.png';
+	plugImages[4] = new Image();
+	plugImages[4].src = 'assets/notelementof.png';
+
+	plugs = [0,1,2,3,4,-1,-1,-1,-1,-1];
+	winplugs = [0,0,0,0,0,0,0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=5;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function level4(){
+	holeCoords = [
+	{'x' : 100, 'y' : 100},
+	{'x' : 100, 'y' : 170},
+	{'x' : 100, 'y' : 240},
+	{'x' : 650, 'y' : 100},
+	{'x' : 650, 'y' : 170},
+	{'x' : 130, 'y' : 390, 'plug' : 1},
+	{'x' : 200, 'y' : 390, 'plug' : 4},
+	{'x' : 460, 'y' : 390, 'plug' : 2},
+	{'x' : 120, 'y' : 480, 'plug' : 0},
+	{'x' : 220, 'y' : 480, 'plug' : 3}]
+
+	plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/aintersectb.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/elementof.png';
+	plugImages[2] = new Image();
+	plugImages[2].src = 'assets/aunionb.png';
+	plugImages[3] = new Image();
+	plugImages[3].src = 'assets/emptyset.png';
+	plugImages[4] = new Image();
+	plugImages[4].src = 'assets/b.png';
+
+
+	plugs = [0,1,2,3,4,-1,-1,-1,-1,-1];
+	winplugs = [0,0,0,0,0,0,0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=5;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function level5(){
+	holeCoords = [
+	{'x' : 100, 'y' : 100},
+	{'x' : 100, 'y' : 170},
+	{'x' : 100, 'y' : 240},
+	{'x' : 650, 'y' : 100},
+	{'x' : 650, 'y' : 170},
+	{'x' : 650, 'y' : 240},
+	{'x' :  80, 'y' : 390, 'plug' : 0},
+	{'x' : 560, 'y' : 390, 'plug' : 1},
+	{'x' : 110, 'y' : 460, 'plug' : 3}, 
+	{'x' : 560, 'y' : 460, 'plug' : 4}]
+
+	plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/aintersectb.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/subset.png';
+	plugImages[2] = new Image();
+	plugImages[2].src = 'assets/notelementof.png';
+	plugImages[3] = new Image();
+	plugImages[3].src = 'assets/elementof.png';
+	plugImages[4] = new Image();
+	plugImages[4].src = 'assets/notsubsetof.png';
+	plugImages[5] = new Image();
+	plugImages[5].src = 'assets/aunionc.png';
+
+
+	plugs = [0,1,2,3,4,5,-1,-1,-1,-1];
+	winplugs = [0,0,0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=4;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function level6(){
+	holeCoords = [
+	{'x' : 100, 'y' : 100},
+	{'x' : 100, 'y' : 170},
+	{'x' : 100, 'y' : 240},
+	{'x' : 650, 'y' : 100},
+	{'x' : 650, 'y' : 170},
+	{'x' : 650, 'y' : 240},
+	{'x' : 140, 'y' : 390, 'plug' : 0},
+	{'x' : 540, 'y' : 390, 'plug' : 4},
+	{'x' :  90, 'y' : 460, 'plug' : 1}, 
+	{'x' : 570, 'y' : 460, 'plug' : 5}]
+
+	plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/ssuperset.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/aintersectb.png';
+	plugImages[2] = new Image();
+	plugImages[2].src = 'assets/elementof.png';
+	plugImages[3] = new Image();
+	plugImages[3].src = 'assets/subset.png';
+	plugImages[4] = new Image();
+	plugImages[4].src = 'assets/notsupersetof.png';
+	plugImages[5] = new Image();
+	plugImages[5].src = 'assets/bintersectc.png';
+
+
+	plugs = [0,1,2,3,4,5,-1,-1,-1,-1];
+	winplugs = [0,0,0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=4;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function level7(){
+	holeCoords = [
+	{'x' : 100, 'y' : 100},
+	{'x' : 100, 'y' : 170},
+	{'x' : 100, 'y' : 240},
+	{'x' : 650, 'y' : 100},
+	{'x' : 650, 'y' : 170},
+	{'x' : 650, 'y' : 240},
+	{'x' :  60, 'y' : 390, 'plug' : 0},
+	{'x' : 500, 'y' : 390, 'plug' : 3},
+	{'x' : 150, 'y' : 460, 'plug' : 1}, 
+	{'x' : 510, 'y' : 460, 'plug' : 4},
+	{'x' : 580, 'y' : 460, 'plug' : 5}]
+
+	plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/aunionb.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/subset.png';
+	plugImages[2] = new Image();
+	plugImages[2].src = 'assets/a.png';
+	plugImages[3] = new Image();
+	plugImages[3].src = 'assets/awithoutb.png';
+	plugImages[4] = new Image();
+	plugImages[4].src = 'assets/notelementof.png';
+	plugImages[5] = new Image();
+	plugImages[5].src = 'assets/b.png';
+
+
+	plugs = [0,1,2,3,4,5,-1,-1,-1,-1,-1];
+	winplugs = [0,0,0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=5;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function level8(){
+	holeCoords = [
+	{'x' : 100, 'y' : 100},
+	{'x' : 100, 'y' : 170},
+	{'x' : 100, 'y' : 240},
+	{'x' : 100, 'y' : 310},
+	{'x' : 650, 'y' : 100},
+	{'x' : 650, 'y' : 170},
+	{'x' : 650, 'y' : 240},
+	{'x' : 650, 'y' : 310},
+	{'x' :  80, 'y' : 390, 'plug' : 0},
+	{'x' : 490, 'y' : 390, 'plug' : 6},
+	{'x' : 590, 'y' : 390, 'plug' : 5}, 
+	{'x' : 110, 'y' : 460, 'plug' : 1},
+	{'x' : 490, 'y' : 460, 'plug' : 4}]
+
+	plugImages = new Array();
+	plugImages[0] = new Image();
+	plugImages[0].src = 'assets/acomplement.png';
+	plugImages[1] = new Image();
+	plugImages[1].src = 'assets/superset.png';
+	plugImages[2] = new Image();
+	plugImages[2].src = 'assets/notsubsetof.png';
+	plugImages[3] = new Image();
+	plugImages[3].src = 'assets/bcomplement.png';
+	plugImages[4] = new Image();
+	plugImages[4].src = 'assets/bwithoutc.png';
+	plugImages[5] = new Image();
+	plugImages[5].src = 'assets/emptyset.png';
+	plugImages[6] = new Image();
+	plugImages[6].src = 'assets/aintersectc.png';
+	plugImages[7] = new Image();
+	plugImages[7].src = 'assets/c.png';
+
+
+	plugs = [0,1,2,3,4,5,6,7,-1,-1,-1,-1,-1];
+	winplugs = [0,0,0,0,0,0,0,0];
+	currentPlug = -1;
+	currentHole = -1;
+	win=false;
+	winCount = 0;
+	wrongplug=0;
+	holenumbers=5;
+	hintButton = new Image();
+	hintButton.src = 'assets/hint.png';
+	replayButton = new Image();
+	replayButton.src = 'assets/replay.png';
+	nextButton = new Image();
+	nextButton.src = 'assets/next.png';
+}
+
+function draw1(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	//circle A
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-110, (canvas.height)/2-50, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	//circle B
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+110, (canvas.height)/2-50,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 1",(canvas.width)/2, 30);
+	ctx.fillText("A", 290, 110);
+	ctx.fillText("B", 510,110);
+	//ctx.fillText("C", 560,370);
+	ctx.fillText("3", 340,220);
+	ctx.fillText("7", 250,220)
+	ctx.fillText("11", 300,280);
+	ctx.fillText("8", 500,200);
+	ctx.fillText("18", 550,280);
+	ctx.fillText("1.           = {3,7,11}", 150, 430);
+	ctx.fillText("2.           = {8,18}", 550, 430);
+	//ctx.fillText("?", 540,30);
+	//ctx.fillText("Retry",620,30);
+	//ctx.fillText("Next", 720,30);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+	//alert(currentPlug);
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage (plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+
+    }
+}
+
+function draw2(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	//circle A
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-60, (canvas.height)/2-50, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	//circle B
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2-50,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 2",(canvas.width)/2, 30);
+	ctx.fillText("A", 330, 110);
+	ctx.fillText("B", 470,110);
+	ctx.fillText("6", 400,270);
+	ctx.fillText("12", 400,220);
+	ctx.fillText("2", 280,210)
+	ctx.fillText("4", 300,280);
+	ctx.fillText("3", 500,200);
+	ctx.fillText("9", 510,280);
+	ctx.fillText("1.           = {2,4,6,12}", 150, 430);
+	ctx.fillText("2.           = {6,12}", 550, 430);
+	ctx.fillText("3.           = {2,3,4,6,9,12}", 180, 520);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage ( plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+    }
+}
+
+function draw3(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	//circle A
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-60, (canvas.height)/2-50, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	//circle B
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2-50,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 3",(canvas.width)/2, 30);
+	ctx.fillText("A", 330, 110);
+	ctx.fillText("B", 470,110);
+	ctx.fillText("10", 400,220);
+	ctx.fillText("4", 280,210)
+	ctx.fillText("6", 300,280);
+	ctx.fillText("5", 500,200);
+	ctx.fillText("1.           = {5,10}", 150, 430);
+	ctx.fillText("2.           = {4,6,10}", 550, 430);
+	ctx.fillText("3. 10                      ", 180, 520);
+	ctx.fillText("4. 7           A \u222A B", 550, 520);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage ( plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+    }
+}
+
+function draw4(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	//circle A
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-60, (canvas.height)/2-50, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	//circle B
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2-50,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 4",(canvas.width)/2, 30);
+	ctx.fillText("A", 330, 110);
+	ctx.fillText("B", 470,110);
+	ctx.fillText("2", 280,210)
+	ctx.fillText("4", 300,280);
+	ctx.fillText("1", 500,200);
+	ctx.fillText("5", 480,270);
+	ctx.fillText("3", 530,250);
+	ctx.fillText("        1. 5                      ", 150, 430);
+	ctx.fillText("2.           = {1,2,3,4,5}", 550, 430);
+	ctx.fillText("3.           =           ", 180, 520);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage ( plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+    }
+}
+
+function draw5(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-60, (canvas.height)/2, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2), ((canvas.height)/2)-100,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 5",(canvas.width)/2, 30);
+	ctx.fillText("A", 400,70);
+	ctx.fillText("B", 240,370);
+	ctx.fillText("C", 560,370);
+	ctx.fillText("3", 400,150);
+	ctx.fillText("6", 450,220)
+	ctx.fillText("2", 480,300);
+	ctx.fillText("5", 310,330);
+	ctx.fillText("35", 280,280);
+	ctx.fillText("10", 400,310);
+	//ctx.fillText("?", 650,30);
+	//ctx.fillText("Next", 720,30);
+	ctx.fillText("1.           = \u2205", 120, 430);
+	ctx.fillText("2. {5,35}            B", 550, 430);
+	ctx.fillText("3. 2           C", 120, 500);
+	ctx.fillText("4. {2,3}           A", 550, 500);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage ( plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+
+    }
+
+}
+
+function draw6(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-60, (canvas.height)/2, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2), ((canvas.height)/2)-100,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 6",(canvas.width)/2, 30);
+	ctx.fillText("A", 400,70);
+	ctx.fillText("B", 240,370);
+	ctx.fillText("C", 560,370);
+	ctx.fillText("8", 400,320);
+	ctx.fillText("2", 480,300);
+	ctx.fillText("4", 310,330);
+	ctx.fillText("12", 340,230);
+	//ctx.fillText("?", 650,30);
+	//ctx.fillText("Next", 720,30);
+	ctx.fillText("1. B           A", 150, 430);
+	ctx.fillText("2. B           C", 550, 430);
+	ctx.fillText("3.           = 12", 130, 500);
+	ctx.fillText("4. 8 =           ", 560, 500);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage ( plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+
+    }
+}
+
+function draw7(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-60, (canvas.height)/2, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2), ((canvas.height)/2)-100,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 7",(canvas.width)/2, 30);
+	ctx.fillText("A", 400,70);
+	ctx.fillText("B", 240,370);
+	ctx.fillText("C", 560,370);
+	ctx.fillText("3", 400,150);
+	ctx.fillText("6", 450,220)
+	ctx.fillText("2", 480,300);
+	ctx.fillText("5", 310,330);
+	ctx.fillText("15", 340,230);
+	//ctx.fillText("?", 650,30);
+	//ctx.fillText("Next", 720,30);
+	ctx.fillText("1.           = {3,5,6,15}", 150, 430);
+	ctx.fillText("2.            = {3,6}", 550, 430);
+	ctx.fillText("3. A \u2229 C           A", 130, 500);
+	ctx.fillText("4. 3                      ", 560, 500);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage ( plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+
+    }
+}
+
+function draw8(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)-60, (canvas.height)/2, 100, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.beginPath();
+	//ctx.arc(Xcoord, Ycoord, size,)
+	ctx.arc(((canvas.width)/2), ((canvas.height)/2)-100,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Level 8",(canvas.width)/2, 30);
+	ctx.fillText("A", 400,70);
+	ctx.fillText("B", 240,370);
+	ctx.fillText("C", 560,370);
+	ctx.fillText("2", 400,150);
+	ctx.fillText("8", 350,230)
+	//ctx.fillText("2", 480,300);
+	ctx.fillText("4", 310,330);
+	//ctx.fillText("15", 340,230);
+	//ctx.fillText("35", 280,280);
+	ctx.fillText("12", 400,310);
+	//ctx.fillText("?", 650,30);
+	ctx.fillText("Next", 720,30);
+	ctx.fillText("1.           = {4,12}", 150, 430);
+	ctx.fillText("2.           =           ", 550, 430);
+	ctx.fillText("3. B           C", 120, 500);
+	ctx.fillText("4.           = {4,8}", 540, 500);
+	ctx.drawImage(hintButton,540,10,40,40);
+	ctx.drawImage(replayButton, 620,10,40,40);
+	ctx.drawImage(nextButton, 700,10,40,40);
+
+	for(var i=0; i<holeCoords.length;i++)
+    {
+    	ctx.strokeRect(holeCoords[i].x, holeCoords[i].y, 51, 51);
+    }
+
+    for (var i=0; i<plugs.length; i++) {
+    	if (plugs[i] != -1) { 
+    		ctx.drawImage ( plugImages[plugs[i]] , holeCoords[i].x, holeCoords[i].y, 50, 50 );
+    	}
+    }
+
+    if (currentPlug != -1) {
+    	// draw current plug (being dragged) at mouse position (mouseX,mouseY)
+    	ctx.drawImage ( plugImages[currentPlug] , mouseX-25, mouseY-25, 50, 50);
+
+    }
+}
+
+function drawend(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.font = "30px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+	ctx.fillText("Thanks for playing!",(canvas.width)/2, 30);
+	ctx.fillText("Replay?", 620, 30);
+	ctx.fillText("Finished game! You scored "+ totalscore +" / " +totalholenumbers,(canvas.width)/2, 200);
+}
+
+
+document.addEventListener("mousedown", mousedown, false);
+document.addEventListener('mouseup',   mouseup,   false);
+
+var mouseX;
+var mouseY;
+
+document.addEventListener('mousemove',   mousemove,   false);
+
+document.addEventListener("click", hintButton, false);
+
+document.addEventListener("click", nextButton, false);
+
+document.addEventListener("click", retryButton, false);
+
+function mousemove(event){
+	// update mouseX and mouseY with new mouse position
+	mouseX = event.clientX;
+	mouseY = event.clientY;
+	drawlevels[levelCount]();
+
+}
+
+	function mousedown(event) {
+		//alert("test");
+		pickUpPlug(event.clientX, event.clientY);
+	}
+
+	function mouseup(event) {
+		dropPlug(event.clientX,event.clientY);
+	}
+
+
+	function pickUpPlug(x,y) {
+		for(var i=0; i<holeCoords.length; i++){
+			if (x>(holeCoords[i].x) & 
+				x<(holeCoords[i].x+50) & 
+				y>(holeCoords[i].y) & 
+				y<(holeCoords[i].y+50) & 
+				plugs[i] != -1){
+				//PICK UP PLUG
+				currentPlug = plugs[i];
+				//Updating hole the currentPlug came from to 0
+				plugs[i] = -1;
+				currentHole = i;
+		    	break
+			}
+		}
+		drawlevels[levelCount]();
+	}
+	
+	function dropPlug(x,y) {
+		if (currentPlug != -1) {
+			var plugDropped = false;
+			for(var i=0; i<holeCoords.length; i++){
+				if (x>(holeCoords[i].x) & 
+					x<(holeCoords[i].x+50) & 
+					y>(holeCoords[i].y) & 
+					y<(holeCoords[i].y+50) &
+					plugs[i] == -1){
+					//drop plug in current hole
+					//Updating hole with plug
+					plugs[i] = currentPlug;
+					//checking to see if correct plug is being dropped on correct hole
+					if(holeCoords[i].plug == currentPlug){
+						if(winplugs[currentPlug]==0){
+							winCount = winCount +1;
+						}
+						winplugs[currentPlug]=1;
+					}
+					else{
+						wrongplug = wrongplug+1;	
+					}
+					currentPlug = -1;
+					currentHole = -1;
+					plugDropped = true;
+					//checking to see if every hole has a plug
+					for(i=plugImages.length; i<plugs.length;i++){
+						if(plugs[i] == -1){
+							win = false;
+							break;
+						}
+						else{
+							if(winCount == (plugs.length-plugImages.length)){
+								win=true;
+							}
+						}
+					}
+					if(win==true){
+						if(wrongplug==0){
+							alert("Well done! You've scored "+ (holenumbers-wrongplug)+ "/"+holenumbers+ " for this level. Click 'Next' to continue.");
+						}
+						else if(wrongplug<(plugs.length-plugImages.length))
+						{
+							alert("Well done! You've scored "+(holenumbers-wrongplug)+"/"+holenumbers+" for this level. Click 'Retry' to attempt the level again, or click 'Next' to continue.");
+						}
+						else{
+							alert("Well done! You've scored 1/"+holenumbers+ " for this level. Click 'Retry' to attempt the level again, or click 'Next' to continue");
+							wrongplug=1;
+						}
+						if(levelCount == drawlevels.length-2){
+							totalscoreArray[levelCount] = wrongplug;
+							levelCount = levelCount+1;
+							//setup();
+							drawlevels[levelCount]();
+							for(var i=0; i<totalscoreArray.length;i++){
+								sum = sum + totalscoreArray[i];
+							}
+							totalscore = (totalholenumbers)-sum;
+
+							//for(var i=0; i<totalscoreArray.length;i++){
+							//	sum = sum + totalscoreArray[i];
+							//}
+							//totalscore = ((levelCount)*10)-sum;
+							//alert("Finished game!");
+							//alert("Finished game! You scored "+ totalscore +" / " +((levelCount+1)*10));
+					}
+					}
+			    	break
+				}
+			}
+			if (!plugDropped) {
+				// return plug to hole it originally came from
+				plugs[currentHole] = currentPlug;
+				currentPlug = -1;
+				currentHole = -1;
+			}
+			drawlevels[levelCount]();
+	    }
+	}
+
+	function hintButton(event){
+		if(event.clientX>550 & event.clientX<580 & event.clientY>10 & event.clientY<60){
+			alert(hints[levelCount]);
+		}
+	}
+
+	function retryButton(event){
+		if(event.clientX>630 & event.clientX<665 & event.clientY>10 & event.clientY<60){
+			if(levelCount == (drawlevels.length)-1){
+				levelCount = 0;
+				for(var i=0; i<totalscoreArray.length;i++){
+					totalscoreArray[i] = 0;
+				}
+				
+				//alert(totalscoreArray);
+				winCount = 0;
+				setup();
+			}
+			else{
+				setup();
+				winCount=0;
+				totalscoreArray[levelCount] = 0;	
+			}
+
+		}
+	}
+
+	function nextButton(event){
+		if(event.clientX>705 & event.clientX<750 & event.clientY>10 & event.clientY<60)
+		{
+			if(win==true){
+				if(levelCount == drawlevels.length-2){
+					alert("Finished game!");
+					//levelCount = levelCount+1;
+					//setup();
+				}
+				//break
+				else{
+					totalscoreArray[levelCount] = wrongplug;
+					levelCount = levelCount+1;
+					winCount = 0;
+					setup();
+					}
+
+			}
+			else{
+				alert("Almost... Use the hint button if you need help");
+			}
+		}
+	}
+setup();
+</script>
+</body>
+</html><html>
+<head>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="550" style="margin:0;padding:0;"></canvas>
+
+<script type="text/javascript" language="javascript">
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+var levelCount = 0;
 var drawlevels = [draw1,draw2,draw3,draw4,draw5,draw6,draw7,draw8,drawend];
 //var drawlevels = [draw1,draw2,draw3,drawend];
 var leveldata = [level1,level2,level3,level4,level5,level6,level7,level8];
