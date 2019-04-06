@@ -660,7 +660,7 @@ function level15(){
 	plugImages[2] = new Image();
 	plugImages[2].src = 'assets/a.png';
 	plugImages[3] = new Image();
-	plugImages[3].src = 'assets/ssuperset.png';
+	plugImages[3].src = 'assets/notsupersetof.png';
 	plugImages[4] = new Image();
 	plugImages[4].src = 'assets/complementaunionc.png';
 	plugImages[5] = new Image();
@@ -1464,14 +1464,14 @@ function mousemove(event){
 					}
 					if(win==true){
 						if(wrongplug==0){
-							alert("Well done! You've scored "+ (holenumbers-wrongplug)+ "/"+holenumbers+ " for this level. Click the next button to continue.");
+							alert("Well done! You've scored "+ (holenumbers-wrongplug)+ "/"+holenumbers+ " for this level. Click the arrow to proceed");
 						}
 						else if(wrongplug<=(plugs.length-plugImages.length))
 						{
 							alert("Not quite! You've scored "+(holenumbers-wrongplug)+"/"+holenumbers+" for this level. Click the retry button to attempt the level again");
 						}
 						else{
-							alert("You've scored 0/"+holenumbers+ " for this level. Click the retry button to attempt the level again, or click the next button to continue");
+							alert("You've scored 0/"+holenumbers+ " for this level. Click the retry button to attempt the level again, or click the arrow to proceed");
 							wrongplug=holenumbers;
 						}
 						if(levelCount == drawlevels.length-2){
@@ -1535,6 +1535,7 @@ function mousemove(event){
 				}
 			}
 			else{
+				counter=0;
 				setup();
 				winCount=0;
 				totalscoreArray[levelCount] = 0;	
@@ -1563,7 +1564,7 @@ function mousemove(event){
 					}
 			}
 			else{
-				alert("Almost... Use the hint button if you need help");
+				alert("Not quite... Use the hint button if you need help");
 			}
 		}
 	}
