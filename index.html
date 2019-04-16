@@ -10,18 +10,19 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var sound = document.getElementById('sound');
 var levelCount = 0;
-var drawlevels = [drawstart,draw1,draw2,draw3,draw4,draw5,draw6,draw7,draw8,draw9,draw10,draw11,draw12,draw13,draw14,
-					draw15,drawend];
-					//draw1,draw2,draw3,draw4,draw5,draw6,draw7,
-var leveldata = [startdata,level1,level2,level3,level4,level5,level6,level7,level8,level9,level10,level11,level12,level13,level14,
-					level15];
-					//level1,level2,level3,level4,level5,level6,level7,
-//var drawlevels = [drawstart,draw14,draw15,drawend];
-//var leveldata = [startdata,level14,level15];
+var drawlevels = [drawstart,draw1,draw2,draw3,draw4,draw5,draw6,draw7,draw8,draw9,draw10,draw11,
+					draw12,draw13,draw14,draw15,drawend];
+var leveldata = [startdata,level1,level2,level3,level4,level5,level6,level7,level8,level9,level10,
+					level11,level12,level13,level14,level15];
+//var drawlevels = [drawstart,draw15,drawend];
+//var leveldata = [startdata,level15];
 //var drawlevels = [drawstart,draw1,draw2,draw3,drawend];
 //var leveldata = [startdata,level1,level2,level3];
 var rand1 = [draw1a,draw1b,draw1c,draw1d,draw1e];
 var rand2 = [draw2a,draw2b,draw2c,draw2d,draw2e];
+var rand3 = [draw3a,draw3b,draw3c,draw3d,draw3e];
+var rand4 = [draw4a,draw4b,draw4c,draw4d,draw4e];
+var rand5 = [draw5a,draw5b,draw5c,draw5d,draw5e];
 var holeCoords = new Array();
 var plugImages = new Array();
 var plugs = new Array();
@@ -167,8 +168,8 @@ function startdata(){
 
 function level1(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 650, 'y' : 100},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
 		{'x' :  60, 'y' : 390, 'plug' : 0},
 		{'x' : 460, 'y' : 390, 'plug' : 1}]
 
@@ -186,10 +187,10 @@ function level1(){
 
 function level2(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 100, 'y' : 170},
-		{'x' : 650, 'y' : 100},
-		{'x' : 650, 'y' : 170},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 100, 'y' : 170, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 170, 'plug' : -2},
 		{'x' :  50, 'y' : 390, 'plug' : 0},
 		{'x' : 470, 'y' : 390, 'plug' : 3},
 		{'x' :  50, 'y' : 480, 'plug' : 2}]
@@ -213,11 +214,11 @@ function level2(){
 
 function level3(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 100, 'y' : 170},
-		{'x' : 100, 'y' : 240},
-		{'x' : 650, 'y' : 100},
-		{'x' : 650, 'y' : 170},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 100, 'y' : 170, 'plug' : -2},
+		{'x' : 100, 'y' : 240, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 170, 'plug' : -2},
 		{'x' :  75, 'y' : 390, 'plug' : 3},
 		{'x' : 465, 'y' : 390, 'plug' : 0},
 		{'x' : 120, 'y' : 480, 'plug' : 1},
@@ -244,15 +245,16 @@ function level3(){
 
 function level4(){
 	holeCoords = [
-	{'x' : 100, 'y' : 100},
-	{'x' : 100, 'y' : 170},
-	{'x' : 100, 'y' : 240},
-	{'x' : 650, 'y' : 100},
-	{'x' : 650, 'y' : 170},
+	{'x' : 100, 'y' : 100, 'plug' : -2},
+	{'x' : 100, 'y' : 170, 'plug' : -2},
+	{'x' : 100, 'y' : 240, 'plug' : -2},
+	{'x' : 650, 'y' : 100, 'plug' : -2},
+	{'x' : 650, 'y' : 170, 'plug' : -2},
 	{'x' : 130, 'y' : 390, 'plug' : 0},
 	{'x' : 200, 'y' : 390, 'plug' : 3},
 	{'x' : 450, 'y' : 390, 'plug' : 1},
-	{'x' : 210, 'y' : 480, 'plug' : 2}]
+	{'x' : 210, 'y' : 480, 'plug' : 2},
+	{'x' : 450, 'y' : 480, 'plug' : 4}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -267,7 +269,7 @@ function level4(){
 	plugImages[4].src = 'assets/a.png';
 
 
-	plugs = [0,1,2,3,4,-1,-1,-1,-1];
+	plugs = [0,1,2,3,4,-1,-1,-1,-1,-1];
 	winplugs = [0,0,0,0,0];
 	holenumbers=5;
 	startdata();
@@ -275,12 +277,12 @@ function level4(){
 
 function level5(){
 	holeCoords = [
-	{'x' : 100, 'y' : 100},
-	{'x' : 100, 'y' : 170},
-	{'x' : 100, 'y' : 240},
-	{'x' : 650, 'y' : 100},
-	{'x' : 650, 'y' : 170},
-	{'x' : 650, 'y' : 240},
+	{'x' : 100, 'y' : 100, 'plug' : -2},
+	{'x' : 100, 'y' : 170, 'plug' : -2},
+	{'x' : 100, 'y' : 240, 'plug' : -2},
+	{'x' : 650, 'y' : 100, 'plug' : -2},
+	{'x' : 650, 'y' : 170, 'plug' : -2},
+	{'x' : 650, 'y' : 240, 'plug' : -2},
 	{'x' :  70, 'y' : 390, 'plug' : 0},
 	{'x' : 550, 'y' : 390, 'plug' : 1},
 	{'x' : 110, 'y' : 460, 'plug' : 3}, 
@@ -309,12 +311,12 @@ function level5(){
 
 function level6(){
 	holeCoords = [
-	{'x' : 100, 'y' : 100},
-	{'x' : 100, 'y' : 170},
-	{'x' : 100, 'y' : 240},
-	{'x' : 650, 'y' : 100},
-	{'x' : 650, 'y' : 170},
-	{'x' : 650, 'y' : 240},
+	{'x' : 100, 'y' : 100, 'plug' : -2},
+	{'x' : 100, 'y' : 170, 'plug' : -2},
+	{'x' : 100, 'y' : 240, 'plug' : -2},
+	{'x' : 650, 'y' : 100, 'plug' : -2},
+	{'x' : 650, 'y' : 170, 'plug' : -2},
+	{'x' : 650, 'y' : 240, 'plug' : -2},
 	{'x' : 125, 'y' : 390, 'plug' : 0},
 	{'x' : 525, 'y' : 390, 'plug' : 4},
 	{'x' :  75, 'y' : 460, 'plug' : 1}, 
@@ -343,12 +345,12 @@ function level6(){
 
 function level7(){
 	holeCoords = [
-	{'x' : 100, 'y' : 100},
-	{'x' : 100, 'y' : 170},
-	{'x' : 100, 'y' : 240},
-	{'x' : 650, 'y' : 100},
-	{'x' : 650, 'y' : 170},
-	{'x' : 650, 'y' : 240},
+	{'x' : 100, 'y' : 100, 'plug' : -2},
+	{'x' : 100, 'y' : 170, 'plug' : -2},
+	{'x' : 100, 'y' : 240, 'plug' : -2},
+	{'x' : 650, 'y' : 100, 'plug' : -2},
+	{'x' : 650, 'y' : 170, 'plug' : -2},
+	{'x' : 650, 'y' : 240, 'plug' : -2},
 	{'x' :  60, 'y' : 390, 'plug' : 0},
 	{'x' : 500, 'y' : 390, 'plug' : 3},
 	{'x' : 135, 'y' : 460, 'plug' : 1}, 
@@ -378,14 +380,14 @@ function level7(){
 
 function level8(){
 	holeCoords = [
-	{'x' : 100, 'y' : 100},
-	{'x' : 100, 'y' : 170},
-	{'x' : 100, 'y' : 240},
-	{'x' : 100, 'y' : 310},
-	{'x' : 650, 'y' : 100},
-	{'x' : 650, 'y' : 170},
-	{'x' : 650, 'y' : 240},
-	{'x' : 650, 'y' : 310},
+	{'x' : 100, 'y' : 100, 'plug' : -2},
+	{'x' : 100, 'y' : 170, 'plug' : -2},
+	{'x' : 100, 'y' : 240, 'plug' : -2},
+	{'x' : 100, 'y' : 310, 'plug' : -2},
+	{'x' : 650, 'y' : 100, 'plug' : -2},
+	{'x' : 650, 'y' : 170, 'plug' : -2},
+	{'x' : 650, 'y' : 240, 'plug' : -2},
+	{'x' : 650, 'y' : 310, 'plug' : -2},
 	{'x' :  80, 'y' : 390, 'plug' : 0},
 	{'x' : 575, 'y' : 390, 'plug' : 5}, 
 	{'x' : 110, 'y' : 460, 'plug' : 1},
@@ -418,21 +420,22 @@ function level8(){
 
 function level9(){
 holeCoords = [
-	{'x' : 100, 'y' : 100},
-	{'x' : 100, 'y' : 170},
-	{'x' : 100, 'y' : 240},
-	{'x' : 650, 'y' : 100},
-	{'x' : 650, 'y' : 170},
-	{'x' : 650, 'y' : 240},
+	{'x' : 100, 'y' : 100, 'plug' : -2},
+	{'x' : 100, 'y' : 170, 'plug' : -2},
+	{'x' : 100, 'y' : 240, 'plug' : -2},
+	{'x' : 650, 'y' : 100, 'plug' : -2},
+	{'x' : 650, 'y' : 170, 'plug' : -2},
+	{'x' : 650, 'y' : 240, 'plug' : -2},
 	{'x' : 100, 'y' : 390, 'plug' : 0},
 	{'x' : 500, 'y' : 390, 'plug' : 5}, 
-	{'x' : 100, 'y' : 460, 'plug' : 3}]
+	{'x' : 100, 'y' : 460, 'plug' : 3},
+	{'x' : 500, 'y' : 460, 'plug' : 1}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
 	plugImages[0].src = 'assets/cardinalitya.png';
 	plugImages[1] = new Image();
-	plugImages[1].src = 'assets/bintersectc.png';
+	plugImages[1].src = 'assets/acomplement.png';
 	plugImages[2] = new Image();
 	plugImages[2].src = 'assets/a.png';
 	plugImages[3] = new Image();
@@ -443,22 +446,22 @@ holeCoords = [
 	plugImages[5].src = 'assets/cardinalityb.png';
 
 
-	plugs = [0,1,2,3,4,5,-1,-1,-1];
+	plugs = [0,1,2,3,4,5,-1,-1,-1,-1];
 	winplugs = [0,0,0,0,0,0];
-	holenumbers=3;
+	holenumbers=4;
 	startdata();
 }
 
 function level10(){
 holeCoords = [
-	{'x' : 100, 'y' : 100},
-	{'x' : 100, 'y' : 170},
-	{'x' : 100, 'y' : 240},
-	{'x' : 100, 'y' : 310},
-	{'x' : 650, 'y' : 100},
-	{'x' : 650, 'y' : 170},
-	{'x' : 650, 'y' : 240},
-	{'x' : 650, 'y' : 310},
+	{'x' : 100, 'y' : 100, 'plug' : -2},
+	{'x' : 100, 'y' : 170, 'plug' : -2},
+	{'x' : 100, 'y' : 240, 'plug' : -2},
+	{'x' : 100, 'y' : 310, 'plug' : -2},
+	{'x' : 650, 'y' : 100, 'plug' : -2},
+	{'x' : 650, 'y' : 170, 'plug' : -2},
+	{'x' : 650, 'y' : 240, 'plug' : -2},
+	{'x' : 650, 'y' : 310, 'plug' : -2},
 	{'x' : 100, 'y' : 390, 'plug' : 4},
 	{'x' : 490, 'y' : 390, 'plug' : 3},
 	{'x' : 50, 'y' : 460, 'plug' : 2}, 
@@ -485,20 +488,20 @@ holeCoords = [
 
 	plugs = [0,1,2,3,4,5,6,7,-1,-1,-1,-1];
 	winplugs = [0,0,0,0,0,0,0,0];
-	holenumbers = 5;
+	holenumbers = 4;
 	startdata();
 }
 
 function level11(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 100, 'y' : 170},
-		{'x' : 100, 'y' : 240},
-		{'x' : 100, 'y' : 310},
-		{'x' : 650, 'y' : 100},
-		{'x' : 650, 'y' : 170},
-		{'x' : 650, 'y' : 240},
-		{'x' : 650, 'y' : 310},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 100, 'y' : 170, 'plug' : -2},
+		{'x' : 100, 'y' : 240, 'plug' : -2},
+		{'x' : 100, 'y' : 310, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 170, 'plug' : -2},
+		{'x' : 650, 'y' : 240, 'plug' : -2},
+		{'x' : 650, 'y' : 310, 'plug' : -2},
 		{'x' : 90, 'y' : 390, 'plug' : 1},
 		{'x' : 600, 'y' : 390, 'plug' : 3},
 		{'x' : 130, 'y' : 460, 'plug' : 7}, 
@@ -531,12 +534,12 @@ function level11(){
 
 function level12(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 100, 'y' : 170},
-		{'x' : 100, 'y' : 240},
-		{'x' : 650, 'y' : 100},
-		{'x' : 650, 'y' : 170},
-		{'x' : 650, 'y' : 240},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 100, 'y' : 170, 'plug' : -2},
+		{'x' : 100, 'y' : 240, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 170, 'plug' : -2},
+		{'x' : 650, 'y' : 240, 'plug' : -2},
 		{'x' :  80, 'y' : 390, 'plug' : 1},
 		{'x' : 500, 'y' : 390, 'plug' : 4},
 		{'x' : 245, 'y' : 460, 'plug' : 2}]
@@ -564,12 +567,12 @@ function level12(){
 
 function level13(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 100, 'y' : 170},
-		{'x' : 100, 'y' : 240},
-		{'x' : 650, 'y' : 100},
-		{'x' : 650, 'y' : 170},
-		{'x' : 650, 'y' : 240},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 100, 'y' : 170, 'plug' : -2},
+		{'x' : 100, 'y' : 240, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 170, 'plug' : -2},
+		{'x' : 650, 'y' : 240, 'plug' : -2},
 		{'x' :  115, 'y' : 390, 'plug' : 3},
 		{'x' : 470, 'y' : 390, 'plug' : 5},
 		{'x' : 240, 'y' : 460, 'plug' : 2}]
@@ -597,14 +600,14 @@ function level13(){
 
 function level14(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 100, 'y' : 170},
-		{'x' : 100, 'y' : 240},
-		{'x' : 100, 'y' : 310},
-		{'x' : 650, 'y' : 100},
-		{'x' : 650, 'y' : 170},
-		{'x' : 650, 'y' : 240},
-		{'x' : 650, 'y' : 310},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 100, 'y' : 170, 'plug' : -2},
+		{'x' : 100, 'y' : 240, 'plug' : -2},
+		{'x' : 100, 'y' : 310, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 170, 'plug' : -2},
+		{'x' : 650, 'y' : 240, 'plug' : -2},
+		{'x' : 650, 'y' : 310, 'plug' : -2},
 		{'x' : 100, 'y' : 390, 'plug' : 6},
 		{'x' : 490, 'y' : 390, 'plug' : 3},
 		{'x' : 600, 'y' : 390, 'plug' : 5}, 
@@ -637,14 +640,14 @@ function level14(){
 
 function level15(){
 	holeCoords = [
-		{'x' : 100, 'y' : 100},
-		{'x' : 100, 'y' : 170},
-		{'x' : 100, 'y' : 240},
-		{'x' : 100, 'y' : 310},
-		{'x' : 650, 'y' : 100},
-		{'x' : 650, 'y' : 170},
-		{'x' : 650, 'y' : 240},
-		{'x' : 650, 'y' : 310},
+		{'x' : 100, 'y' : 100, 'plug' : -2},
+		{'x' : 100, 'y' : 170, 'plug' : -2},
+		{'x' : 100, 'y' : 240, 'plug' : -2},
+		{'x' : 100, 'y' : 310, 'plug' : -2},
+		{'x' : 650, 'y' : 100, 'plug' : -2},
+		{'x' : 650, 'y' : 170, 'plug' : -2},
+		{'x' : 650, 'y' : 240, 'plug' : -2},
+		{'x' : 650, 'y' : 310, 'plug' : -2},
 		{'x' : 105, 'y' : 390, 'plug' : 7},
 		{'x' : 500, 'y' : 390, 'plug' : 1},
 		{'x' : 570, 'y' : 390, 'plug' : 4}, 
@@ -654,7 +657,7 @@ function level15(){
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
-	plugImages[0].src = 'assets/cwithoutb.png';
+	plugImages[0].src = 'assets/aintersectb.png';
 	plugImages[1] = new Image();
 	plugImages[1].src = 'assets/elementof.png';
 	plugImages[2] = new Image();
@@ -767,6 +770,46 @@ function drawThreeCircles(){
 	ctx.drawImage(nextButton, 700,10,40,40);
 }
 
+function drawbackgrounda(){
+	ctx.fillStyle = "#F5F5F5";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.font = "50px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#DC143C";
+}
+
+function drawbackgroundb(){
+	ctx.fillStyle = "#F5F5DC";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.font = "50px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#FF7F50";
+}
+
+function drawbackgroundc(){
+	ctx.fillStyle = "#F0FFFF";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.font = "50px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#6495ED";
+}
+
+function drawbackgroundd(){
+	ctx.fillStyle = "#FFF0F5";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.font = "50px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#006400";
+}
+
+function drawbackgrounde(){
+	ctx.fillStyle = "#FFE6CC";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.font = "50px Arial";
+	ctx.textAlign = "center";
+	ctx.fillStyle = "#483D8B";
+}
+
 function draw1(){
 	//randomly selects level from rand1 array for level 1
 	var min=0; 
@@ -776,7 +819,6 @@ function draw1(){
     	randomstored=random;
     	counter=counter+1;
     }
-    //document.write("Random Number Generated : " + random)
 	rand1[randomstored]();
 }
 
@@ -788,8 +830,40 @@ function draw2(){
     	randomstored=random;
     	counter=counter+1;
     }
-    //document.write("Random Number Generated : " + random)
 	rand2[randomstored]();
+}
+
+function draw3(){
+	var min=0; 
+    var max=5;  
+    if(counter==0){
+    	var random =Math.floor(Math.random() * (+max - +min)) + +min;
+    	randomstored=random;
+    	counter=counter+1;
+    }
+	rand3[randomstored]();
+}
+
+function draw4(){
+	var min=0; 
+    var max=5;  
+    if(counter==0){
+    	var random =Math.floor(Math.random() * (+max - +min)) + +min;
+    	randomstored=random;
+    	counter=counter+1;
+    }
+	rand4[randomstored]();
+}
+
+function draw5(){
+	var min=0; 
+    var max=5;  
+    if(counter==0){
+    	var random =Math.floor(Math.random() * (+max - +min)) + +min;
+    	randomstored=random;
+    	counter=counter+1;
+    }
+	rand5[randomstored]();
 }
 
 function drawstart(){
@@ -806,18 +880,9 @@ function drawstart(){
 }
 
 function draw1a(){
-	//ctx.fillStyle = "#F0FFFF";
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#DC143C";
+	drawbackgrounda();
 	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 340,220);
 	ctx.fillText("7", 250,220)
@@ -826,23 +891,13 @@ function draw1a(){
 	ctx.fillText("18", 550,280);
 	ctx.fillText("           = {3,7,11}", 150, 430);
 	ctx.fillText("           = {8,18}", 550, 430);
-
-	//alert(currentPlug);
 	drawHoles();
 }
 
 function draw1b(){
-	//ctx.fillStyle = "#F0FFFF";
-	ctx.fillStyle = "#F5F5DC";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgroundb();
 	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("2", 340,220);
 	ctx.fillText("6", 250,220)
@@ -856,18 +911,9 @@ function draw1b(){
 }
 
 function draw1c(){
-	//ctx.fillStyle = "#F0FFFF";
-	ctx.fillStyle = "#F0FFFF";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#6495ED";
+	drawbackgroundc();
 	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("1", 340,220);
 	ctx.fillText("19", 250,220)
@@ -876,23 +922,13 @@ function draw1c(){
 	ctx.fillText("12", 550,280);
 	ctx.fillText("            = {1,11,19}", 150, 430);
 	ctx.fillText("         = {6,12}", 550, 430);
-	//alert(currentPlug);
 	drawHoles();
 }
 
 function draw1d(){
-	//ctx.fillStyle = "#F0FFFF";
-	ctx.fillStyle = "#FFF0F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#006400";
+	drawbackgroundd();
 	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 340,220);
 	ctx.fillText("9", 250,220)
@@ -901,23 +937,13 @@ function draw1d(){
 	ctx.fillText("22", 550,280);
 	ctx.fillText("         = {3,9}", 150, 430);
 	ctx.fillText("            = {8,10,22}", 550, 430);
-	//alert(currentPlug);
 	drawHoles();
 }
 
 function draw1e(){
-	//ctx.fillStyle = "#F0FFFF";
-	ctx.fillStyle = "#FFE6CC";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#483D8B";
+	drawbackgrounde();
 	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("5", 340,220);
 	ctx.fillText("13", 250,220)
@@ -930,17 +956,9 @@ function draw1e(){
 }
 
 function draw2a(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("6", 400,270);
 	ctx.fillText("12", 400,220);
@@ -955,113 +973,91 @@ function draw2a(){
 }
 
 function draw2b(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgroundb();
 	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
-	
 	ctx.font = "30px Arial";
-	ctx.fillText("6", 400,270);
-	ctx.fillText("12", 400,220);
-	ctx.fillText("2", 280,210)
-	ctx.fillText("4", 300,280);
-	ctx.fillText("3", 500,200);
-	ctx.fillText("9", 510,280);
-	ctx.fillText("           = {2,4,6,12}", 150, 430);
-	ctx.fillText("           = {6,12}", 550, 430);
-	ctx.fillText("           = {2,3,4,6,9,12}", 180, 520);
+	ctx.fillText("15", 400,250);
+	ctx.fillText("3", 280,210)
+	ctx.fillText("6", 300,280);
+	ctx.fillText("5", 500,200);
+	ctx.fillText("10", 510,280);
+	ctx.fillText("          = {3,6,15}", 150, 430);
+	ctx.fillText("         = {15}", 540, 430);
+	ctx.fillText("        = {3,5,6,10,15}", 190, 520);
 	drawHoles();
 }
 
 function draw2c(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgroundc();
 	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
-	
 	ctx.font = "30px Arial";
-	ctx.fillText("6", 400,270);
-	ctx.fillText("12", 400,220);
-	ctx.fillText("2", 280,210)
-	ctx.fillText("4", 300,280);
-	ctx.fillText("3", 500,200);
-	ctx.fillText("9", 510,280);
-	ctx.fillText("           = {2,4,6,12}", 150, 430);
-	ctx.fillText("           = {6,12}", 550, 430);
-	ctx.fillText("           = {2,3,4,6,9,12}", 180, 520);
-
+	ctx.fillText("2", 400,250);
+	ctx.fillText("3", 280,210)
+	ctx.fillText("5", 300,280);
+	ctx.fillText("12", 500,200);
+	ctx.fillText("14", 510,280);
+	ctx.fillText("           = {2,3,5}", 130, 430);
+	ctx.fillText("           = {2}", 530, 430);
+	ctx.fillText("           = {2,3,5,12,14}", 170, 520);
 	drawHoles();
 }
 
 function draw2d(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgroundd();
 	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
-	
 	ctx.font = "30px Arial";
-	ctx.fillText("6", 400,270);
-	ctx.fillText("12", 400,220);
-	ctx.fillText("2", 280,210)
-	ctx.fillText("4", 300,280);
-	ctx.fillText("3", 500,200);
-	ctx.fillText("9", 510,280);
-	ctx.fillText("           = {2,4,6,12}", 150, 430);
-	ctx.fillText("           = {6,12}", 550, 430);
-	ctx.fillText("           = {2,3,4,6,9,12}", 180, 520);
+	ctx.fillText("12", 400,270);
+	ctx.fillText("24", 400,220);
+	ctx.fillText("3", 280,210)
+	ctx.fillText("9", 300,280);
+	ctx.fillText("8", 500,200);
+	ctx.fillText("16", 510,280);
+	ctx.fillText("           = {3,9,12,24}", 160, 430);
+	ctx.fillText("           = {12,24}", 550, 430);
+	ctx.fillText("           = {3,8,9,12,16,24}", 190, 520);
 	drawHoles();
 }
 
 function draw2e(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounde();
 	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
-	
 	ctx.font = "30px Arial";
-	ctx.fillText("6", 400,270);
-	ctx.fillText("12", 400,220);
-	ctx.fillText("2", 280,210)
-	ctx.fillText("4", 300,280);
-	ctx.fillText("3", 500,200);
-	ctx.fillText("9", 510,280);
-	ctx.fillText("           = {2,4,6,12}", 150, 430);
-	ctx.fillText("           = {6,12}", 550, 430);
-	ctx.fillText("           = {2,3,4,6,9,12}", 180, 520);
+	ctx.fillText("9", 400,270);
+	ctx.fillText("25", 400,220);
+	ctx.fillText("7", 280,210)
+	ctx.fillText("11", 300,280);
+	ctx.fillText("4", 500,200);
+	ctx.fillText("16", 510,280);
+	ctx.fillText("           = {7,9,11,25}", 160, 430);
+	ctx.fillText("           = {9,25}", 550, 430);
+	ctx.fillText("           = {4,7,9,11,16,25}", 200, 520);
 	drawHoles();
 }
 
-
-
-function draw3(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+function draw3a(){
+	drawbackgrounda();
 	ctx.fillText("3",(canvas.width)/2, 50);
 	drawTwoCircles2();
-	
+	ctx.font = "30px Arial";
+	ctx.fillText("20", 400,220);
+	ctx.fillText("2", 280,210)
+	ctx.fillText("8", 300,280);
+	ctx.fillText("15", 500,200);
+	ctx.fillText("           = {15,20}", 150, 430);
+	ctx.fillText("           = {2,8,20}", 550, 430);
+	ctx.fillText(" 20                      ", 180, 520);
+	ctx.fillText(" 9           A \u222A B", 550, 520);
+	drawHoles();
+}
+
+function draw3b(){
+	drawbackgroundb();
+	ctx.fillText("3",(canvas.width)/2, 50);
+	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("10", 400,220);
 	ctx.fillText("4", 280,210)
@@ -1074,18 +1070,61 @@ function draw3(){
 	drawHoles();
 }
 
-function draw4(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
+function draw3c(){
+	drawbackgroundc();
+	ctx.fillText("3",(canvas.width)/2, 50);
+	drawTwoCircles2();
+	ctx.font = "30px Arial";
+	ctx.fillText("10", 400,200);
+	ctx.fillText("20", 400,240);
+	ctx.fillText("8", 280,210)
+	ctx.fillText("6", 300,280);
+	ctx.fillText("5", 500,200);
+	ctx.fillText("           = {5,10,20}", 170, 430);
+	ctx.fillText("           = {6,8,10,20}", 570, 430);
+	ctx.fillText(" 10                      ", 180, 520);
+	ctx.fillText(" 3           A \u222A B", 550, 520);
+	drawHoles();
+}
 
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+function draw3d(){
+	drawbackgroundd();
+	ctx.fillText("3",(canvas.width)/2, 50);
+	drawTwoCircles2();
+	ctx.font = "30px Arial";
+	ctx.fillText("9", 400,220);
+	ctx.fillText("3", 280,210)
+	ctx.fillText("11", 300,280);
+	ctx.fillText("16", 500,200);
+	ctx.fillText("           = {9,16}", 150, 430);
+	ctx.fillText("           = {3,9,11}", 550, 430);
+	ctx.fillText(" 9                      ", 180, 520);
+	ctx.fillText(" 7           A \u222A B", 550, 520);
+	drawHoles();
+}
+
+function draw3e(){
+	drawbackgrounde();
+	ctx.fillText("3",(canvas.width)/2, 50);
+	drawTwoCircles2();
+	ctx.font = "30px Arial";
+	ctx.fillText("20", 400,220);
+	ctx.fillText("4", 280,210)
+	ctx.fillText("8", 300,280);
+	ctx.fillText("10", 500,200);
+	ctx.fillText("           = {10,20}", 150, 430);
+	ctx.fillText("           = {4,8,20}", 550, 430);
+	ctx.fillText(" 20                      ", 180, 520);
+	ctx.fillText(" 7           A \u222A B", 550, 520);
+	drawHoles();
+}
+
+function draw4a(){
+	drawbackgrounda();
 	ctx.fillText("4",(canvas.width)/2, 50);
 	drawTwoCircles2();
-	
 	ctx.font = "30px Arial";
-	ctx.fillText("2", 280,210)
+	ctx.fillText("2", 280,210);
 	ctx.fillText("4", 300,280);
 	ctx.fillText("1", 500,200);
 	ctx.fillText("5", 480,270);
@@ -1093,20 +1132,82 @@ function draw4(){
 	ctx.fillText("5          ", 150, 430);
 	ctx.fillText("           = {1,2,3,4,5}", 550, 430);
 	ctx.fillText("A \u2229 B =           ", 180, 520);
+	ctx.fillText("           = {2,4}", 510,520);
 	drawHoles();
 }
 
-function draw5(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	
+function draw4b(){
+	drawbackgroundb();
+	ctx.fillText("4",(canvas.width)/2, 50);
+	drawTwoCircles2();
+	ctx.font = "30px Arial";
+	ctx.fillText("2", 280,210);
+	ctx.fillText("4", 300,290);
+	ctx.fillText("6", 330,240);
+	ctx.fillText("7", 500,200);
+	ctx.fillText("5", 480,270);
+	ctx.fillText("7          ", 150, 430);
+	ctx.fillText("           = {2,4,5,6,7}", 550, 430);
+	ctx.fillText("A \u2229 B =           ", 180, 520);
+	ctx.fillText("           = {2,4,6}", 525,520);
+	drawHoles();
+}
 
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+function draw4c(){
+	drawbackgroundc();
+	ctx.fillText("4",(canvas.width)/2, 50);
+	drawTwoCircles2();
+	ctx.font = "30px Arial";
+	ctx.fillText("8", 280,210);
+	ctx.fillText("6", 300,280);
+	ctx.fillText("5", 500,200);
+	ctx.fillText("7", 480,270);
+	ctx.fillText("9", 530,250);
+	ctx.fillText("9          ", 150, 430);
+	ctx.fillText("           = {5,6,7,8,9}", 550, 430);
+	ctx.fillText("A \u2229 B =           ", 180, 520);
+	ctx.fillText("           = {6,8}", 510,520);
+	drawHoles();
+}
+
+function draw4d(){
+	drawbackgroundd();
+	ctx.fillText("4",(canvas.width)/2, 50);
+	drawTwoCircles2();
+	ctx.font = "30px Arial";
+	ctx.fillText("2", 280,210);
+	ctx.fillText("4", 300,280);
+	ctx.fillText("8", 330,200);
+	ctx.fillText("1", 500,200);
+	ctx.fillText("3", 530,250);
+	ctx.fillText("3          ", 150, 430);
+	ctx.fillText("           = {1,2,3,4,8}", 550, 430);
+	ctx.fillText("A \u2229 B =           ", 180, 520);
+	ctx.fillText("           = {2,4,8}", 525,520);
+	drawHoles();
+}
+
+function draw4e(){
+	drawbackgrounde();
+	ctx.fillText("4",(canvas.width)/2, 50);
+	drawTwoCircles2();
+	ctx.font = "30px Arial";
+	ctx.fillText("4", 280,210);
+	ctx.fillText("6", 300,280);
+	ctx.fillText("11", 500,200);
+	ctx.fillText("7", 480,270);
+	ctx.fillText("9", 530,250);
+	ctx.fillText("11          ", 140, 430);
+	ctx.fillText("           = {4,6,7,9,11}", 560, 430);
+	ctx.fillText("A \u2229 B =           ", 180, 520);
+	ctx.fillText("           = {4,6}", 510,520);
+	drawHoles();
+}
+
+function draw5a(){
+	drawbackgrounda();
 	ctx.fillText("5",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 400,150);
 	ctx.fillText("6", 450,220)
@@ -1119,18 +1220,83 @@ function draw5(){
 	ctx.fillText("    2           C", 120, 500);
 	ctx.fillText("{2,3}          A", 550, 500);
 	drawHoles();
+}
 
+function draw5b(){
+	drawbackgroundb();
+	ctx.fillText("5",(canvas.width)/2, 50);
+	drawThreeCircles();
+	ctx.font = "30px Arial";
+	ctx.fillText("7", 400,150);
+	ctx.fillText("12", 450,220)
+	ctx.fillText("2", 480,300);
+	ctx.fillText("5", 310,330);
+	ctx.fillText("35", 280,280);
+	ctx.fillText("10", 400,310);
+	ctx.fillText("           =  \u2205", 120, 430);
+	ctx.fillText("{10,35}          B", 540, 430);
+	ctx.fillText("    2           C", 120, 500);
+	ctx.fillText("{2,3}          A", 550, 500);
+	drawHoles();
+}
+
+function draw5c(){
+	drawbackgroundc();
+	ctx.fillText("5",(canvas.width)/2, 50);
+	drawThreeCircles();
+	ctx.font = "30px Arial";
+	ctx.fillText("9", 400,150);
+	ctx.fillText("6", 450,220)
+	ctx.fillText("8", 480,300);
+	ctx.fillText("15", 310,330);
+	ctx.fillText("5", 280,280);
+	ctx.fillText("10", 400,310);
+	ctx.fillText("           =  \u2205", 120, 430);
+	ctx.fillText("{5,15}          B", 550, 430);
+	ctx.fillText("    8           C", 120, 500);
+	ctx.fillText("{3,8}          A", 550, 500);
+	drawHoles();
+}
+
+function draw5d(){
+	drawbackgroundd();
+	ctx.fillText("5",(canvas.width)/2, 50);
+	drawThreeCircles();
+	ctx.font = "30px Arial";
+	ctx.fillText("7", 400,150);
+	ctx.fillText("12", 450,220)
+	ctx.fillText("4", 480,300);
+	ctx.fillText("5", 310,350);
+	ctx.fillText("15", 330,300);
+	ctx.fillText("35", 280,280);
+	ctx.fillText("10", 400,310);
+	ctx.fillText("           =  \u2205", 120, 430);
+	ctx.fillText("{5,15,35}          B", 530, 430);
+	ctx.fillText("    4           C", 120, 500);
+	ctx.fillText("{4,7}          A", 550, 500);
+	drawHoles();
+}
+
+function draw5e(){
+	drawbackgrounde();
+	ctx.fillText("5",(canvas.width)/2, 50);
+	drawThreeCircles();
+	ctx.font = "30px Arial";
+	ctx.fillText("3", 400,150);
+	ctx.fillText("6", 450,220)
+	ctx.fillText("2", 480,300);
+	ctx.fillText("5", 310,330);
+	ctx.fillText("30", 280,280);
+	ctx.fillText("10", 400,310);
+	ctx.fillText("           =  \u2205", 120, 430);
+	ctx.fillText("{10,30}          B", 540, 430);
+	ctx.fillText("    2           C", 120, 500);
+	ctx.fillText("{2,3,6}          A", 540, 500);
+	drawHoles();
 }
 
 function draw6(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("6",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1147,14 +1313,7 @@ function draw6(){
 }
 
 function draw7(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("7",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1172,14 +1331,7 @@ function draw7(){
 }
 
 function draw8(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("8",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1196,14 +1348,7 @@ function draw8(){
 }
 
 function draw9(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("9",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1216,18 +1361,12 @@ function draw9(){
 	ctx.fillText("          = 2", 150, 430);
 	ctx.fillText("          = 3", 550, 430);
 	ctx.fillText("           = {4,9,15}", 190, 500);
+	ctx.fillText("          = {7,9,15}", 590,500);
 	drawHoles();
 }
 
 function draw10(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("10",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1245,14 +1384,7 @@ function draw10(){
 }
 
 function draw11(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("11",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1271,14 +1403,7 @@ function draw11(){
 }
 
 function draw12(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("12",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1295,14 +1420,7 @@ function draw12(){
 }
 
 function draw13(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("13",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1320,14 +1438,7 @@ function draw13(){
 }
 
 function draw14(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("14",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1343,12 +1454,7 @@ function draw14(){
 }
 
 function draw15(){
-	ctx.fillStyle = "#F5F5F5";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-	ctx.font = "50px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	drawbackgrounda();
 	ctx.fillText("15",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
@@ -1363,17 +1469,42 @@ function draw15(){
 }
 
 function drawend(){
+	//document.removeEventListener("click", nextButton, false);
 	ctx.fillStyle = "#F5F5F5";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.font = "30px Arial";
 	ctx.textAlign = "center";
-	ctx.fillStyle = "#FF7F50";
+	ctx.fillStyle = "#DC143C";
 	ctx.fillText("Thanks for playing!",(canvas.width)/2, 30);
 	ctx.drawImage(replayButton, 620,10,40,40);
-	ctx.drawImage(nextButton, 700,10,40,40);
-	ctx.fillText("Finished game! You scored "+ totalscore +" / " +totalholenumbers,(canvas.width)/2, 200);
+	ctx.font = "25px Arial";
+	ctx.fillText("Level", 100, 70);
+	ctx.fillText("Max Score", 300, 70);
+	ctx.fillText("Your Score", 500, 70);
+	drawscoretable();
+	//ctx.drawImage(nextButton, 700,10,40,40);
+	//ctx.fillText("Finished game! You scored "+ totalscore +" / " +totalholenumbers,(canvas.width)/2, 200);
 }
 
+function drawscoretable(){
+	ctx.font = "25px Arial";
+	var x1=100;
+	var x2=300;
+	var x3=500;
+	var y=100;
+	var maxscores = new Array();
+	maxscores = [2,3,5,5,4,4,5,4,4,4,4,3,3,4,6];
+	for(var i=0;i<=14;i++){
+		ctx.fillText(i+1, x1,y);
+		ctx.fillText(maxscores[i],x2,y);
+		ctx.fillText((maxscores[i]-totalscoreArray[i+1]),x3,y);
+		//x=x+20;
+		y=y+30;
+	}
+	ctx.font = "30px Arial";
+	ctx.fillText("Total: ", 670, 300);
+	ctx.fillText(totalscore + " / " + totalholenumbers, 670, 350)
+}
 document.addEventListener("mousedown", mousedown, false);
 document.addEventListener('mouseup',   mouseup,   false);
 
@@ -1437,60 +1568,48 @@ function mousemove(event){
 					if(holeCoords[i].plug == currentPlug){
 						if(winplugs[currentPlug]==0){
 							winCount = winCount +1;
-							//alert(winCount);
 						}
 						winplugs[currentPlug]=1;
 					}
-					//TODO add check to let players drag into non answer squares without score reducing
-					else{
-						wrongplug = wrongplug+1;	
+					else{ 
+						if(holeCoords[i].plug==-2){
+							//do nothing
+						}
+						else{
+							//updating variable wrongplug if the user puts the incorrect plug in a hole
+							wrongplug = wrongplug+1;
+						}	
 					}
 					currentPlug = -1;
 					currentHole = -1;
 					plugDropped = true;
-					//alert(plugImages.length);
 					//checking to see if every hole has a plug
 					for(i=plugImages.length; i<plugs.length;i++){
-					//alert("here");
 						if(plugs[i] == -1){
 							win = false;
 							break;
 						}
 						else{
-							//if(winCount == (plugs.length-plugImages.length)){
-								win=true;
-							//}
+							if(winCount == (plugs.length-plugImages.length)){
+								wrongplug = 0;
+								
+							}
+							win=true;
 						}
 					}
 					if(win==true){
 						if(wrongplug==0){
-							alert("Well done! You've scored "+ (holenumbers-wrongplug)+ "/"+holenumbers+ " for this level. Click the arrow to proceed");
+							alert("Well done! You've scored "+ (holenumbers-wrongplug)+ "/"+holenumbers+ " for level " + levelCount + "/15. Click the arrow to proceed");
 						}
 						else if(wrongplug<=(plugs.length-plugImages.length))
 						{
-							alert("Not quite! You've scored "+(holenumbers-wrongplug)+"/"+holenumbers+" for this level. Click the retry button to attempt the level again");
+							alert("Not quite! You've scored "+(holenumbers-wrongplug)+"/"+holenumbers+" for level " + levelCount + "/15. Click the retry button to attempt the level again");
 						}
 						else{
-							alert("You've scored 0/"+holenumbers+ " for this level. Click the retry button to attempt the level again, or click the arrow to proceed");
+							alert("You've scored 0/"+holenumbers+ " for level " + levelCount + "/15. Click the retry button to attempt the level again, or click the arrow to proceed");
 							wrongplug=holenumbers;
 						}
-						if(levelCount == drawlevels.length-2){
-							totalscoreArray[levelCount] = wrongplug;
-							levelCount = levelCount+1;
-							//setup();
-							drawlevels[levelCount]();
-							for(var i=0; i<totalscoreArray.length;i++){
-								sum = sum + totalscoreArray[i];
-							}
-							totalscore = (totalholenumbers)-sum;
-
-							//for(var i=0; i<totalscoreArray.length;i++){
-							//	sum = sum + totalscoreArray[i];
-							//}
-							//totalscore = ((levelCount)*10)-sum;
-							//alert("Finished game!");
-							//alert("Finished game! You scored "+ totalscore +" / " +((levelCount+1)*10));
-					}
+						
 					}
 			    	break
 				}
@@ -1515,12 +1634,6 @@ function mousemove(event){
 		}
 	}
 
-	//function hintclick(event){
-		//if(event.clientX>380 & event.clientX<420 & event.clientY>300 & event.clientY<600){
-
-		//}
-	//}
-
 	function retryButton(event){
 		if(event.clientX>630 & event.clientX<665 & event.clientY>10 & event.clientY<60){
 			if(levelCount == (drawlevels.length)-1){
@@ -1535,10 +1648,18 @@ function mousemove(event){
 				}
 			}
 			else{
-				counter=0;
-				setup();
-				winCount=0;
-				totalscoreArray[levelCount] = 0;	
+				if(win==true){
+					counter=0;
+					setup();
+					winCount=0;
+					totalscoreArray[levelCount] = 0;	
+				}
+				else{
+					setup();
+					winCount=0;
+					totalscoreArray[levelCount] = 0;
+				}
+				
 			}
 
 		}
@@ -1553,6 +1674,17 @@ function mousemove(event){
 					counter=0;
 					//levelCount = levelCount+1;
 					//setup();
+				}
+				if(levelCount == drawlevels.length-2){
+					totalscoreArray[levelCount] = wrongplug;
+					levelCount = levelCount+1;
+					//setup();
+					for(var i=0; i<totalscoreArray.length;i++){
+						sum = sum + totalscoreArray[i];
+					}
+					totalscore = (totalholenumbers)-sum;
+					drawlevels[levelCount]();
+
 				}
 				//break
 				else{
