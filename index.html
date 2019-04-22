@@ -14,8 +14,8 @@ var drawlevels = [drawstart,draw1,draw2,draw3,draw4,draw5,draw6,draw7,draw8,draw
 					draw12,draw13,draw14,draw15,drawend];
 var leveldata = [startdata,level1,level2,level3,level4,level5,level6,level7,level8,level9,level10,
 					level11,level12,level13,level14,level15];
-//var drawlevels = [drawstart,draw15,drawend];
-//var leveldata = [startdata,level15];
+//var drawlevels = [drawstart,draw14,drawend];
+//var leveldata = [startdata,level14];
 //var drawlevels = [drawstart,draw1,draw2,draw3,drawend];
 //var leveldata = [startdata,level1,level2,level3];
 var rand1 = [draw1a,draw1b,draw1c,draw1d,draw1e];
@@ -517,7 +517,7 @@ function level11(){
 	plugImages[3] = new Image();
 	plugImages[3].src = 'assets/emptyset.png';
 	plugImages[4] = new Image();
-	plugImages[4].src = 'assets/notsubsetof.png';
+	plugImages[4].src = 'assets/notsupersetof.png';
 	plugImages[5] = new Image();
 	plugImages[5].src = 'assets/elementof.png';
 	plugImages[6] = new Image();
@@ -615,7 +615,7 @@ function level14(){
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
-	plugImages[0].src = 'assets/bintersectc.png';
+	plugImages[0].src = 'assets/aunionb.png';
 	plugImages[1] = new Image();
 	plugImages[1].src = 'assets/ssubset.png';
 	plugImages[2] = new Image();
@@ -1395,7 +1395,7 @@ function draw11(){
 	ctx.fillText("7", 310,330);
 	ctx.fillText("9", 340,230);
 	ctx.fillText("15", 450,230);
-	ctx.fillText("A |          = {6,15}", 150, 430);
+	ctx.fillText("A \\            = {6,15}", 150, 430);
 	ctx.fillText("A \u2229 B \u2229 C =           ", 550, 430);
 	ctx.fillText("A \u222A B           C", 130, 500);
 	ctx.fillText("7           B", 560, 500);
@@ -1447,8 +1447,8 @@ function draw14(){
 	ctx.fillText("4", 310,330);
 	ctx.fillText("12", 340,230);
 	ctx.fillText("15", 450,230);
-	ctx.fillText("A |          = {15}", 150, 430);
-	ctx.fillText("A | (       )' =          ", 550, 430);
+	ctx.fillText("A \\          = {15}", 150, 430);
+	ctx.fillText("A \\ (       )' =          ", 550, 430);
 	ctx.fillText("{12,15}           A \u222A B \u222A C", 210, 500);
 	drawHoles();
 }
