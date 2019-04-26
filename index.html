@@ -14,8 +14,8 @@ var drawlevels = [drawstart,draw1,draw2,draw3,draw4,draw5,draw6,draw7,draw8,draw
 					draw12,draw13,draw14,draw15,drawend];
 var leveldata = [startdata,level1,level2,level3,level4,level5,level6,level7,level8,level9,level10,
 					level11,level12,level13,level14,level15];
-//var drawlevels = [drawstart,draw14,drawend];
-//var leveldata = [startdata,level14];
+//var drawlevels = [drawstart,draw1,drawend];
+//var leveldata = [startdata,level1];
 //var drawlevels = [drawstart,draw1,draw2,draw3,drawend];
 //var leveldata = [startdata,level1,level2,level3];
 var rand1 = [draw1a,draw1b,draw1c,draw1d,draw1e];
@@ -40,6 +40,7 @@ var sum = 0;
 var hintButton;
 var replayButton;
 var nextButton;
+var homeButton;
 var counter=0;
 var randomstored;
 
@@ -164,14 +165,16 @@ function startdata(){
 	replayButton.src = 'assets/replay.png';
 	nextButton = new Image();
 	nextButton.src = 'assets/next.png';
+	homeButton = new Image();
+	homeButton.src = "assets/home.png";
 }
 
 function level1(){
 	holeCoords = [
 		{'x' : 100, 'y' : 100, 'plug' : -2},
 		{'x' : 650, 'y' : 100, 'plug' : -2},
-		{'x' :  60, 'y' : 390, 'plug' : 0},
-		{'x' : 460, 'y' : 390, 'plug' : 1}]
+		{'x' :  70, 'y' : 390, 'plug' : 0},
+		{'x' : 470, 'y' : 390, 'plug' : 1}]
 
 	//var plugImages = new Array();
 	plugImages[0] = new Image();
@@ -283,10 +286,10 @@ function level5(){
 	{'x' : 650, 'y' : 100, 'plug' : -2},
 	{'x' : 650, 'y' : 170, 'plug' : -2},
 	{'x' : 650, 'y' : 240, 'plug' : -2},
-	{'x' :  70, 'y' : 390, 'plug' : 0},
-	{'x' : 550, 'y' : 390, 'plug' : 1},
-	{'x' : 110, 'y' : 460, 'plug' : 3}, 
-	{'x' : 545, 'y' : 460, 'plug' : 4}]
+	{'x' :  70, 'y' : 410, 'plug' : 0},
+	{'x' : 550, 'y' : 410, 'plug' : 1},
+	{'x' : 110, 'y' : 480, 'plug' : 3}, 
+	{'x' : 545, 'y' : 480, 'plug' : 4}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -317,10 +320,10 @@ function level6(){
 	{'x' : 650, 'y' : 100, 'plug' : -2},
 	{'x' : 650, 'y' : 170, 'plug' : -2},
 	{'x' : 650, 'y' : 240, 'plug' : -2},
-	{'x' : 125, 'y' : 390, 'plug' : 0},
-	{'x' : 525, 'y' : 390, 'plug' : 4},
-	{'x' :  75, 'y' : 460, 'plug' : 1}, 
-	{'x' : 550, 'y' : 460, 'plug' : 5}]
+	{'x' : 125, 'y' : 410, 'plug' : 0},
+	{'x' : 525, 'y' : 410, 'plug' : 4},
+	{'x' :  75, 'y' : 480, 'plug' : 1}, 
+	{'x' : 550, 'y' : 480, 'plug' : 5}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -351,11 +354,11 @@ function level7(){
 	{'x' : 650, 'y' : 100, 'plug' : -2},
 	{'x' : 650, 'y' : 170, 'plug' : -2},
 	{'x' : 650, 'y' : 240, 'plug' : -2},
-	{'x' :  60, 'y' : 390, 'plug' : 0},
-	{'x' : 500, 'y' : 390, 'plug' : 3},
-	{'x' : 135, 'y' : 460, 'plug' : 1}, 
-	{'x' : 510, 'y' : 460, 'plug' : 4},
-	{'x' : 580, 'y' : 460, 'plug' : 5}]
+	{'x' :  60, 'y' : 410, 'plug' : 0},
+	{'x' : 500, 'y' : 410, 'plug' : 3},
+	{'x' : 135, 'y' : 480, 'plug' : 1}, 
+	{'x' : 510, 'y' : 480, 'plug' : 4},
+	{'x' : 580, 'y' : 480, 'plug' : 5}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -388,10 +391,10 @@ function level8(){
 	{'x' : 650, 'y' : 170, 'plug' : -2},
 	{'x' : 650, 'y' : 240, 'plug' : -2},
 	{'x' : 650, 'y' : 310, 'plug' : -2},
-	{'x' :  80, 'y' : 390, 'plug' : 0},
-	{'x' : 575, 'y' : 390, 'plug' : 5}, 
-	{'x' : 110, 'y' : 460, 'plug' : 1},
-	{'x' : 480, 'y' : 460, 'plug' : 4}]
+	{'x' :  80, 'y' : 410, 'plug' : 0},
+	{'x' : 575, 'y' : 410, 'plug' : 5}, 
+	{'x' : 110, 'y' : 480, 'plug' : 1},
+	{'x' : 480, 'y' : 480, 'plug' : 4}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -414,7 +417,7 @@ function level8(){
 
 	plugs = [0,1,2,3,4,5,6,7,-1,-1,-1,-1];
 	winplugs = [0,0,0,0,0,0,0,0];
-	holenumbers=5;
+	holenumbers=4;
 	startdata();
 }
 
@@ -426,10 +429,10 @@ holeCoords = [
 	{'x' : 650, 'y' : 100, 'plug' : -2},
 	{'x' : 650, 'y' : 170, 'plug' : -2},
 	{'x' : 650, 'y' : 240, 'plug' : -2},
-	{'x' : 100, 'y' : 390, 'plug' : 0},
-	{'x' : 500, 'y' : 390, 'plug' : 5}, 
-	{'x' : 100, 'y' : 460, 'plug' : 3},
-	{'x' : 500, 'y' : 460, 'plug' : 1}]
+	{'x' : 100, 'y' : 410, 'plug' : 0},
+	{'x' : 500, 'y' : 410, 'plug' : 5}, 
+	{'x' : 100, 'y' : 480, 'plug' : 3},
+	{'x' : 500, 'y' : 480, 'plug' : 1}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -462,10 +465,10 @@ holeCoords = [
 	{'x' : 650, 'y' : 170, 'plug' : -2},
 	{'x' : 650, 'y' : 240, 'plug' : -2},
 	{'x' : 650, 'y' : 310, 'plug' : -2},
-	{'x' : 100, 'y' : 390, 'plug' : 4},
-	{'x' : 490, 'y' : 390, 'plug' : 3},
-	{'x' : 50, 'y' : 460, 'plug' : 2}, 
-	{'x' : 500, 'y' : 460, 'plug' : 6}]
+	{'x' : 100, 'y' : 410, 'plug' : 4},
+	{'x' : 490, 'y' : 410, 'plug' : 3},
+	{'x' : 50, 'y' :  480, 'plug' : 2}, 
+	{'x' : 500, 'y' : 480, 'plug' : 6}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -479,7 +482,7 @@ holeCoords = [
 	plugImages[4] = new Image();
 	plugImages[4].src = 'assets/cardinalityb.png';
 	plugImages[5] = new Image();
-	plugImages[5].src = 'assets/notsubsetof.png';
+	plugImages[5].src = 'assets/ssubset.png';
 	plugImages[6] = new Image();
 	plugImages[6].src = 'assets/ssuperset.png';
 	plugImages[7] = new Image();
@@ -502,10 +505,10 @@ function level11(){
 		{'x' : 650, 'y' : 170, 'plug' : -2},
 		{'x' : 650, 'y' : 240, 'plug' : -2},
 		{'x' : 650, 'y' : 310, 'plug' : -2},
-		{'x' : 90, 'y' : 390, 'plug' : 1},
-		{'x' : 600, 'y' : 390, 'plug' : 3},
-		{'x' : 130, 'y' : 460, 'plug' : 7}, 
-		{'x' : 530, 'y' : 460, 'plug' : 5}]
+		{'x' : 90, 'y' :  410, 'plug' : 1},
+		{'x' : 600, 'y' : 410, 'plug' : 3},
+		{'x' : 130, 'y' : 480, 'plug' : 7}, 
+		{'x' : 530, 'y' : 480, 'plug' : 5}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -540,9 +543,9 @@ function level12(){
 		{'x' : 650, 'y' : 100, 'plug' : -2},
 		{'x' : 650, 'y' : 170, 'plug' : -2},
 		{'x' : 650, 'y' : 240, 'plug' : -2},
-		{'x' :  80, 'y' : 390, 'plug' : 1},
-		{'x' : 500, 'y' : 390, 'plug' : 4},
-		{'x' : 245, 'y' : 460, 'plug' : 2}]
+		{'x' :  80, 'y' : 410, 'plug' : 1},
+		{'x' : 500, 'y' : 410, 'plug' : 4},
+		{'x' : 245, 'y' : 480, 'plug' : 2}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -573,9 +576,9 @@ function level13(){
 		{'x' : 650, 'y' : 100, 'plug' : -2},
 		{'x' : 650, 'y' : 170, 'plug' : -2},
 		{'x' : 650, 'y' : 240, 'plug' : -2},
-		{'x' :  115, 'y' : 390, 'plug' : 3},
-		{'x' : 470, 'y' : 390, 'plug' : 5},
-		{'x' : 240, 'y' : 460, 'plug' : 2}]
+		{'x' : 115, 'y' : 410, 'plug' : 3},
+		{'x' : 470, 'y' : 410, 'plug' : 5},
+		{'x' : 240, 'y' : 480, 'plug' : 2}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -608,10 +611,10 @@ function level14(){
 		{'x' : 650, 'y' : 170, 'plug' : -2},
 		{'x' : 650, 'y' : 240, 'plug' : -2},
 		{'x' : 650, 'y' : 310, 'plug' : -2},
-		{'x' : 100, 'y' : 390, 'plug' : 6},
-		{'x' : 490, 'y' : 390, 'plug' : 3},
-		{'x' : 600, 'y' : 390, 'plug' : 5}, 
-		{'x' : 170, 'y' : 460, 'plug' : 1}]
+		{'x' : 100, 'y' : 410, 'plug' : 6},
+		{'x' : 490, 'y' : 410, 'plug' : 3},
+		{'x' : 600, 'y' : 410, 'plug' : 5}, 
+		{'x' : 170, 'y' : 480, 'plug' : 1}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -648,12 +651,12 @@ function level15(){
 		{'x' : 650, 'y' : 170, 'plug' : -2},
 		{'x' : 650, 'y' : 240, 'plug' : -2},
 		{'x' : 650, 'y' : 310, 'plug' : -2},
-		{'x' : 105, 'y' : 390, 'plug' : 7},
-		{'x' : 500, 'y' : 390, 'plug' : 1},
-		{'x' : 570, 'y' : 390, 'plug' : 4}, 
-		{'x' : 150, 'y' : 460, 'plug' : 6},
-		{'x' : 340, 'y' : 460, 'plug' : 2},
-		{'x' : 590, 'y' : 460, 'plug' : 5}]
+		{'x' : 105, 'y' : 410, 'plug' : 7},
+		{'x' : 500, 'y' : 410, 'plug' : 1},
+		{'x' : 570, 'y' : 410, 'plug' : 4}, 
+		{'x' : 150, 'y' : 480, 'plug' : 6},
+		{'x' : 340, 'y' : 480, 'plug' : 2},
+		{'x' : 590, 'y' : 480, 'plug' : 5}]
 
 	plugImages = new Array();
 	plugImages[0] = new Image();
@@ -711,6 +714,10 @@ function drawTwoCircles1(){
 	ctx.arc(((canvas.width)/2)+110, (canvas.height)/2-50,100,0,2 * Math.PI);
 	ctx.stroke();
 
+	//universal set
+	ctx.rect((canvas.width/2)-225, (canvas.height/2)-200, 450, 280);
+	ctx.stroke();
+
 	ctx.font = "30px Arial";
 	ctx.fillText("A", 290, 110);
 	ctx.fillText("B", 510,110);
@@ -718,6 +725,7 @@ function drawTwoCircles1(){
 	ctx.drawImage(hintButton,540,10,40,40);
 	ctx.drawImage(replayButton, 620,10,40,40);
 	ctx.drawImage(nextButton, 700,10,40,40);
+	ctx.drawImage(homeButton, 30,10,40,40);
 }
 
 function drawTwoCircles2(){
@@ -733,6 +741,10 @@ function drawTwoCircles2(){
 	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2-50,100,0,2 * Math.PI);
 	ctx.stroke();
 
+	//universal set
+	ctx.rect((canvas.width/2)-225, (canvas.height/2)-200, 450, 280);
+	ctx.stroke();
+
 	ctx.font = "30px Arial";
 	ctx.fillText("A", 330, 110);
 	ctx.fillText("B", 470,110);
@@ -740,6 +752,7 @@ function drawTwoCircles2(){
 	ctx.drawImage(hintButton,540,10,40,40);
 	ctx.drawImage(replayButton, 620,10,40,40);
 	ctx.drawImage(nextButton, 700,10,40,40);
+	ctx.drawImage(homeButton, 30,10,40,40);
 }
 
 function drawThreeCircles(){
@@ -755,10 +768,14 @@ function drawThreeCircles(){
 	ctx.arc(((canvas.width)/2)+60, (canvas.height)/2,100,0,2 * Math.PI);
 	ctx.stroke();
 
-	//circleB
+	//circleC
 	ctx.beginPath();
 	//ctx.arc(Xcoord, Ycoord, size,)
 	ctx.arc(((canvas.width)/2), ((canvas.height)/2)-100,100,0,2 * Math.PI);
+	ctx.stroke();
+
+	//universal set
+	ctx.rect((canvas.width/2)-225, (canvas.height/2)-210, 450, 320);
 	ctx.stroke();
 
 	ctx.font = "30px Arial";
@@ -768,6 +785,7 @@ function drawThreeCircles(){
 	ctx.drawImage(hintButton,540,10,40,40);
 	ctx.drawImage(replayButton, 620,10,40,40);
 	ctx.drawImage(nextButton, 700,10,40,40);
+	ctx.drawImage(homeButton, 30,10,40,40);
 }
 
 function drawbackgrounda(){
@@ -775,6 +793,8 @@ function drawbackgrounda(){
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.font = "50px Arial";
 	ctx.textAlign = "center";
+	ctx.fillStyle = "#000000";
+	ctx.fillText(levelCount,(canvas.width)/2, 50);
 	ctx.fillStyle = "#DC143C";
 }
 
@@ -783,6 +803,8 @@ function drawbackgroundb(){
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.font = "50px Arial";
 	ctx.textAlign = "center";
+	ctx.fillStyle = "#000000";
+	ctx.fillText(levelCount,(canvas.width)/2, 50);
 	ctx.fillStyle = "#FF7F50";
 }
 
@@ -791,6 +813,8 @@ function drawbackgroundc(){
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.font = "50px Arial";
 	ctx.textAlign = "center";
+	ctx.fillStyle = "#000000";
+	ctx.fillText(levelCount,(canvas.width)/2, 50);
 	ctx.fillStyle = "#6495ED";
 }
 
@@ -799,6 +823,8 @@ function drawbackgroundd(){
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.font = "50px Arial";
 	ctx.textAlign = "center";
+	ctx.fillStyle = "#000000";
+	ctx.fillText(levelCount,(canvas.width)/2, 50);
 	ctx.fillStyle = "#006400";
 }
 
@@ -807,6 +833,8 @@ function drawbackgrounde(){
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.font = "50px Arial";
 	ctx.textAlign = "center";
+	ctx.fillStyle = "#000000";
+	ctx.fillText(levelCount,(canvas.width)/2, 50);
 	ctx.fillStyle = "#483D8B";
 }
 
@@ -881,7 +909,6 @@ function drawstart(){
 
 function draw1a(){
 	drawbackgrounda();
-	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 340,220);
@@ -896,7 +923,6 @@ function draw1a(){
 
 function draw1b(){
 	drawbackgroundb();
-	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
 	ctx.font = "30px Arial";
 	ctx.fillText("2", 340,220);
@@ -912,7 +938,6 @@ function draw1b(){
 
 function draw1c(){
 	drawbackgroundc();
-	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
 	ctx.font = "30px Arial";
 	ctx.fillText("1", 340,220);
@@ -927,7 +952,6 @@ function draw1c(){
 
 function draw1d(){
 	drawbackgroundd();
-	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 340,220);
@@ -942,7 +966,6 @@ function draw1d(){
 
 function draw1e(){
 	drawbackgrounde();
-	ctx.fillText("1",(canvas.width)/2, 50);
 	drawTwoCircles1();
 	ctx.font = "30px Arial";
 	ctx.fillText("5", 340,220);
@@ -957,7 +980,6 @@ function draw1e(){
 
 function draw2a(){
 	drawbackgrounda();
-	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("6", 400,270);
@@ -974,7 +996,6 @@ function draw2a(){
 
 function draw2b(){
 	drawbackgroundb();
-	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("15", 400,250);
@@ -990,7 +1011,6 @@ function draw2b(){
 
 function draw2c(){
 	drawbackgroundc();
-	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("2", 400,250);
@@ -1006,7 +1026,6 @@ function draw2c(){
 
 function draw2d(){
 	drawbackgroundd();
-	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("12", 400,270);
@@ -1023,7 +1042,6 @@ function draw2d(){
 
 function draw2e(){
 	drawbackgrounde();
-	ctx.fillText("2",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("9", 400,270);
@@ -1040,7 +1058,6 @@ function draw2e(){
 
 function draw3a(){
 	drawbackgrounda();
-	ctx.fillText("3",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("20", 400,220);
@@ -1056,7 +1073,6 @@ function draw3a(){
 
 function draw3b(){
 	drawbackgroundb();
-	ctx.fillText("3",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("10", 400,220);
@@ -1072,7 +1088,6 @@ function draw3b(){
 
 function draw3c(){
 	drawbackgroundc();
-	ctx.fillText("3",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("10", 400,200);
@@ -1089,7 +1104,6 @@ function draw3c(){
 
 function draw3d(){
 	drawbackgroundd();
-	ctx.fillText("3",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("9", 400,220);
@@ -1105,7 +1119,6 @@ function draw3d(){
 
 function draw3e(){
 	drawbackgrounde();
-	ctx.fillText("3",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("20", 400,220);
@@ -1121,7 +1134,6 @@ function draw3e(){
 
 function draw4a(){
 	drawbackgrounda();
-	ctx.fillText("4",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("2", 280,210);
@@ -1138,7 +1150,6 @@ function draw4a(){
 
 function draw4b(){
 	drawbackgroundb();
-	ctx.fillText("4",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("2", 280,210);
@@ -1155,7 +1166,6 @@ function draw4b(){
 
 function draw4c(){
 	drawbackgroundc();
-	ctx.fillText("4",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("8", 280,210);
@@ -1172,7 +1182,6 @@ function draw4c(){
 
 function draw4d(){
 	drawbackgroundd();
-	ctx.fillText("4",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("2", 280,210);
@@ -1189,7 +1198,6 @@ function draw4d(){
 
 function draw4e(){
 	drawbackgrounde();
-	ctx.fillText("4",(canvas.width)/2, 50);
 	drawTwoCircles2();
 	ctx.font = "30px Arial";
 	ctx.fillText("4", 280,210);
@@ -1206,7 +1214,6 @@ function draw4e(){
 
 function draw5a(){
 	drawbackgrounda();
-	ctx.fillText("5",(canvas.width)/2, 50);
 	drawThreeCircles();
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 400,150);
@@ -1215,16 +1222,15 @@ function draw5a(){
 	ctx.fillText("5", 310,330);
 	ctx.fillText("35", 280,280);
 	ctx.fillText("10", 400,310);
-	ctx.fillText("           =  \u2205", 120, 430);
-	ctx.fillText("{5,35}          B", 550, 430);
-	ctx.fillText("    2           C", 120, 500);
-	ctx.fillText("{2,3}          A", 550, 500);
+	ctx.fillText("           =  \u2205", 120, 450);
+	ctx.fillText("{5,35}          B", 550, 450);
+	ctx.fillText("    2           C", 120, 520);
+	ctx.fillText("{2,3}          A", 550, 520);
 	drawHoles();
 }
 
 function draw5b(){
 	drawbackgroundb();
-	ctx.fillText("5",(canvas.width)/2, 50);
 	drawThreeCircles();
 	ctx.font = "30px Arial";
 	ctx.fillText("7", 400,150);
@@ -1233,16 +1239,15 @@ function draw5b(){
 	ctx.fillText("5", 310,330);
 	ctx.fillText("35", 280,280);
 	ctx.fillText("10", 400,310);
-	ctx.fillText("           =  \u2205", 120, 430);
-	ctx.fillText("{10,35}          B", 540, 430);
-	ctx.fillText("    2           C", 120, 500);
-	ctx.fillText("{2,3}          A", 550, 500);
+	ctx.fillText("           =  \u2205", 120, 450);
+	ctx.fillText("{10,35}          B", 540, 450);
+	ctx.fillText("    2           C", 120, 520);
+	ctx.fillText("{2,3}          A", 550, 520);
 	drawHoles();
 }
 
 function draw5c(){
 	drawbackgroundc();
-	ctx.fillText("5",(canvas.width)/2, 50);
 	drawThreeCircles();
 	ctx.font = "30px Arial";
 	ctx.fillText("9", 400,150);
@@ -1251,16 +1256,15 @@ function draw5c(){
 	ctx.fillText("15", 310,330);
 	ctx.fillText("5", 280,280);
 	ctx.fillText("10", 400,310);
-	ctx.fillText("           =  \u2205", 120, 430);
-	ctx.fillText("{5,15}          B", 550, 430);
-	ctx.fillText("    8           C", 120, 500);
-	ctx.fillText("{3,8}          A", 550, 500);
+	ctx.fillText("           =  \u2205", 120, 450);
+	ctx.fillText("{5,15}          B", 550, 450);
+	ctx.fillText("    8           C", 120, 520);
+	ctx.fillText("{3,8}          A", 550, 520);
 	drawHoles();
 }
 
 function draw5d(){
 	drawbackgroundd();
-	ctx.fillText("5",(canvas.width)/2, 50);
 	drawThreeCircles();
 	ctx.font = "30px Arial";
 	ctx.fillText("7", 400,150);
@@ -1270,16 +1274,15 @@ function draw5d(){
 	ctx.fillText("15", 330,300);
 	ctx.fillText("35", 280,280);
 	ctx.fillText("10", 400,310);
-	ctx.fillText("           =  \u2205", 120, 430);
-	ctx.fillText("{5,15,35}          B", 530, 430);
-	ctx.fillText("    4           C", 120, 500);
-	ctx.fillText("{4,7}          A", 550, 500);
+	ctx.fillText("           =  \u2205", 120, 450);
+	ctx.fillText("{5,15,35}          B", 530, 450);
+	ctx.fillText("    4           C", 120, 520);
+	ctx.fillText("{4,7}          A", 550, 520);
 	drawHoles();
 }
 
 function draw5e(){
 	drawbackgrounde();
-	ctx.fillText("5",(canvas.width)/2, 50);
 	drawThreeCircles();
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 400,150);
@@ -1288,16 +1291,15 @@ function draw5e(){
 	ctx.fillText("5", 310,330);
 	ctx.fillText("30", 280,280);
 	ctx.fillText("10", 400,310);
-	ctx.fillText("           =  \u2205", 120, 430);
-	ctx.fillText("{10,30}          B", 540, 430);
-	ctx.fillText("    2           C", 120, 500);
-	ctx.fillText("{2,3,6}          A", 540, 500);
+	ctx.fillText("           =  \u2205", 120, 450);
+	ctx.fillText("{10,30}          B", 540, 450);
+	ctx.fillText("    2           C", 120, 520);
+	ctx.fillText("{2,3,6}          A", 540, 520);
 	drawHoles();
 }
 
 function draw6(){
 	drawbackgrounda();
-	ctx.fillText("6",(canvas.width)/2, 50);
 	drawThreeCircles();
 	
 	ctx.font = "30px Arial";
@@ -1305,89 +1307,79 @@ function draw6(){
 	ctx.fillText("2", 480,300);
 	ctx.fillText("4", 310,330);
 	ctx.fillText("12", 340,230);
-	ctx.fillText("B           A", 150, 430);
-	ctx.fillText("B           C", 550, 430);
-	ctx.fillText("           = {12}", 130, 500);
-	ctx.fillText("8 \u2208           ", 560, 500);
+	ctx.fillText("B           A", 150, 450);
+	ctx.fillText("B           C", 550, 450);
+	ctx.fillText("            = {12}", 130, 520);
+	ctx.fillText("8 \u2208           ", 560, 520);
 	drawHoles();
 }
 
 function draw7(){
 	drawbackgrounda();
-	ctx.fillText("7",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("3", 400,150);
 	ctx.fillText("6", 450,220)
 	ctx.fillText("2", 480,300);
 	ctx.fillText("5", 310,330);
 	ctx.fillText("15", 340,230);
-	ctx.fillText("           = {3,5,6,15}", 150, 430);
-	ctx.fillText("             = {3,6}", 550, 430);
-	ctx.fillText("A \u2229 C           A", 130, 500);
-	ctx.fillText("3                  ", 560, 500);
+	ctx.fillText("           = {3,5,6,15}", 150, 450);
+	ctx.fillText("             = {3,6}", 550, 450);
+	ctx.fillText("A \u2229 C           A", 130, 520);
+	ctx.fillText("3                  ", 560, 520);
 	drawHoles();
 }
 
 function draw8(){
 	drawbackgrounda();
-	ctx.fillText("8",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("2", 400,150);
 	ctx.fillText("8", 350,230)
 	ctx.fillText("4", 310,330);
 	ctx.fillText("12", 400,310);
-	ctx.fillText("           = {4,12}", 150, 430);
-	ctx.fillText("A \u2229 C =           ", 550, 430);
-	ctx.fillText("   B            C", 120, 500);
-	ctx.fillText("           = {4,8}", 540, 500);
+	ctx.fillText("           = {4,12}", 150, 450);
+	ctx.fillText("A \u2229 C =           ", 550, 450);
+	ctx.fillText("   B            C", 120, 520);
+	ctx.fillText("           = {4,8}", 540, 520);
 	drawHoles();
 }
 
 function draw9(){
 	drawbackgrounda();
-	ctx.fillText("9",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("4", 400,150);
 	ctx.fillText("2", 460,220)
 	ctx.fillText("9", 310,330);
 	ctx.fillText("15", 280,280);
 	ctx.fillText("7", 400,310);
-	ctx.fillText("          = 2", 150, 430);
-	ctx.fillText("          = 3", 550, 430);
-	ctx.fillText("           = {4,9,15}", 190, 500);
-	ctx.fillText("          = {7,9,15}", 590,500);
+	ctx.fillText("          = 2", 150, 450);
+	ctx.fillText("          = 3", 550, 450);
+	ctx.fillText("           = {4,9,15}", 190, 520);
+	ctx.fillText("          = {7,9,15}", 590,520);
 	drawHoles();
 }
 
 function draw10(){
 	drawbackgrounda();
-	ctx.fillText("10",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("7", 400,150);
 	ctx.fillText("6", 400,320)
 	ctx.fillText("3", 480,300);
 	ctx.fillText("4", 310,330);
 	ctx.fillText("14", 340,230);
-	ctx.fillText("          = 3", 150, 430);
-	ctx.fillText("          = {7}", 550, 430);
-	ctx.fillText("           = {3,4,6}", 130, 500);
-	ctx.fillText("B           B \u2229 C", 560, 500);
+	ctx.fillText("          = 3", 150, 450);
+	ctx.fillText("          = {7}", 550, 450);
+	ctx.fillText("           = {3,4,6}", 130, 520);
+	ctx.fillText("B           B \u2229 C", 560, 520);
 	drawHoles();
 }
 
 function draw11(){
 	drawbackgrounda();
-	ctx.fillText("11",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("6", 400,150);
 	ctx.fillText("5", 400,320)
@@ -1395,35 +1387,31 @@ function draw11(){
 	ctx.fillText("7", 310,330);
 	ctx.fillText("9", 340,230);
 	ctx.fillText("15", 450,230);
-	ctx.fillText("A \\            = {6,15}", 150, 430);
-	ctx.fillText("A \u2229 B \u2229 C =           ", 550, 430);
-	ctx.fillText("A \u222A B           C", 130, 500);
-	ctx.fillText("7           B", 560, 500);
+	ctx.fillText("A \\ (       ) = {6,15}", 150, 450);
+	ctx.fillText("A \u2229 B \u2229 C =           ", 550, 450);
+	ctx.fillText("A \u222A B           C", 130, 520);
+	ctx.fillText("7           B", 560, 520);
 	drawHoles();
 }
 
 function draw12(){
 	drawbackgrounda();
-	ctx.fillText("12",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("4", 400,150);
 	ctx.fillText("3", 300,280)
 	ctx.fillText("15", 480,300);
 	ctx.fillText("9", 330,350);
 	ctx.fillText("12", 350,220);
-	ctx.fillText("(        )' = {15}", 150, 430);
-	ctx.fillText("|        | = 3", 550, 430);
-	ctx.fillText("A \u2229 (B \u222A C)'           A", 200, 500);
+	ctx.fillText("(        )' = {15}", 150, 450);
+	ctx.fillText("|        | = 3", 550, 450);
+	ctx.fillText("A \u2229 (B \u222A C)'           A", 200, 520);
 	drawHoles();
 }
 
 function draw13(){
 	drawbackgrounda();
-	ctx.fillText("13",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("9", 400,150);
 	ctx.fillText("3", 300,280)
@@ -1431,45 +1419,40 @@ function draw13(){
 	ctx.fillText("6", 330,350);
 	ctx.fillText("4", 510,330);
 	ctx.fillText("36", 400,250);
-	ctx.fillText("9           A'", 150, 430);
-	ctx.fillText("|         \u2229 C| = 2", 550, 430);
-	ctx.fillText("(A \u2229 B \u2229 C)'           C", 200, 500);
+	ctx.fillText("9           A'", 150, 450);
+	ctx.fillText("|         \u2229 C| = 2", 550, 450);
+	ctx.fillText("(A \u2229 B \u2229 C)'           C", 200, 520);
 	drawHoles();
 }
 
 function draw14(){
 	drawbackgrounda();
-	ctx.fillText("14",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.font = "30px Arial";
 	ctx.fillText("5", 500,300);
 	ctx.fillText("4", 310,330);
 	ctx.fillText("12", 340,230);
 	ctx.fillText("15", 450,230);
-	ctx.fillText("A \\          = {15}", 150, 430);
-	ctx.fillText("A \\ (       )' =          ", 550, 430);
-	ctx.fillText("{12,15}           A \u222A B \u222A C", 210, 500);
+	ctx.fillText("A \\          = {15}", 150, 450);
+	ctx.fillText("A \\ (       )' =          ", 550, 450);
+	ctx.fillText("{12,15}           A \u222A B \u222A C", 210, 520);
 	drawHoles();
 }
 
 function draw15(){
 	drawbackgrounda();
-	ctx.fillText("15",(canvas.width)/2, 50);
 	drawThreeCircles();
-	
 	ctx.fillText("10", 310,330);
 	ctx.fillText("3", 340,230);
 	ctx.fillText("15", 400,250);
-	ctx.fillText("| A \u2229         | = 1", 130, 430);
-	ctx.fillText("10                    ", 550, 430);
-	ctx.fillText("A \u2229 A' =           ", 130, 500);
-	ctx.fillText("C \u2282         & C \u2282 B \u21D2 C          A \u2229 B", 510, 500);
+	ctx.fillText("| A \u2229         | = 1", 130, 450);
+	ctx.fillText("10                    ", 550, 450);
+	ctx.fillText("A \u2229 A' =           ", 130, 520);
+	ctx.fillText("C \u2282         & C \u2282 B \u21D2 C          A \u2229 B", 510, 520);
 	drawHoles();
 }
 
 function drawend(){
-	//document.removeEventListener("click", nextButton, false);
 	ctx.fillStyle = "#F5F5F5";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.font = "30px Arial";
@@ -1482,8 +1465,6 @@ function drawend(){
 	ctx.fillText("Max Score", 300, 70);
 	ctx.fillText("Your Score", 500, 70);
 	drawscoretable();
-	//ctx.drawImage(nextButton, 700,10,40,40);
-	//ctx.fillText("Finished game! You scored "+ totalscore +" / " +totalholenumbers,(canvas.width)/2, 200);
 }
 
 function drawscoretable(){
@@ -1515,6 +1496,7 @@ document.addEventListener('mousemove',   mousemove,   false);
 document.addEventListener("click", hintButton, false);
 document.addEventListener("click", nextButton, false);
 document.addEventListener("click", retryButton, false);
+document.addEventListener("click", homeButton, false);
 
 function mousemove(event){
 	// update mouseX and mouseY with new mouse position
@@ -1594,19 +1576,20 @@ function mousemove(event){
 								wrongplug = 0;
 								
 							}
+							drawlevels[levelCount]();
 							win=true;
 						}
 					}
 					if(win==true){
 						if(wrongplug==0){
-							alert("Well done! You've scored "+ (holenumbers-wrongplug)+ "/"+holenumbers+ " for level " + levelCount + "/15. Click the arrow to proceed");
+							alert("Well done! You've scored "+ (holenumbers-wrongplug)+ "/"+holenumbers+ " for level " + levelCount + "/15. Click the arrow to proceed.");
 						}
 						else if(wrongplug<=(plugs.length-plugImages.length))
 						{
-							alert("Not quite! You've scored "+(holenumbers-wrongplug)+"/"+holenumbers+" for level " + levelCount + "/15. Click the retry button to attempt the level again");
+							alert("Not quite! You've scored "+(holenumbers-wrongplug)+"/"+holenumbers+" for level " + levelCount + "/15. Click the retry button to attempt the level again.");
 						}
 						else{
-							alert("You've scored 0/"+holenumbers+ " for level " + levelCount + "/15. Click the retry button to attempt the level again, or click the arrow to proceed");
+							alert("You've scored 0/"+holenumbers+ " for level " + levelCount + "/15. Click the retry button to attempt the level again, or click the arrow to proceed.");
 							wrongplug=holenumbers;
 						}
 						
@@ -1697,6 +1680,27 @@ function mousemove(event){
 			}
 			else{
 				alert("Not quite... Use the hint button if you need help");
+			}
+		}
+	}
+	function homeButton(event){
+		if(event.clientX>40 & event.clientX<80 & event.clientY>10 & event.clientY<60){
+			var r = window.confirm("Are you sure that you want to return to the homepage? All data will be lost.");
+			if(r==true){
+				levelCount = 0;
+				winCount = 0;
+				counter = 0;
+				totalscore = 0;
+				for(var i=0; i<totalscoreArray.length;i++){
+					totalscoreArray[i] = 0;
+				}
+				sum = 0;
+				plugImages = new Array();
+				//drawlevels[levelCount]();
+				setup();
+			}
+			else{
+				//do nothing
 			}
 		}
 	}
